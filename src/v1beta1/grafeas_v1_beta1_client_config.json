@@ -3,7 +3,6 @@
     "grafeas.v1beta1.GrafeasV1Beta1": {
       "retry_codes": {
         "idempotent": [
-          "DEADLINE_EXCEEDED",
           "UNAVAILABLE"
         ],
         "non_idempotent": []
