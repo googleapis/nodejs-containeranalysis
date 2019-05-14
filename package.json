@@ -25,13 +25,13 @@
     "Container Analysis API"
   ],
   "dependencies": {
-    "google-gax": "^0.25.3",
+    "google-gax": "^1.0.0",
     "lodash.merge": "^4.6.0",
     "lodash.union": "^4.6.0"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "through2": "^2.0.3"
+    "mocha": "^6.0.0",
+    "through2": "^3.0.0"
   },
   "scripts": {
     "publish-module": "node ../../scripts/publish.js containeranalysis",
