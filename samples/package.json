@@ -14,7 +14,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "@google-cloud/containeranalysis": "^0.1.0"
+    "@google-cloud/containeranalysis": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
