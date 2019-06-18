@@ -2,8 +2,8 @@ const {assert} = require('chai');
 const cp = require('child_process');
 const uuid = require(`uuid`);
 
-const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
-const client = new ContainerAnalysisClient();
+const containerAnalysis = require('@google-cloud/containeranalysis');
+const client = new containerAnalysis.v1beta1.GrafeasV1Beta1Client();
 
 const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
