@@ -14,8 +14,8 @@ async function main(
   // const noteId = 'my-note-id' // Id of the note
 
   // Import the library and create a client
-  const containerAnalysis = require('@google-cloud/containeranalysis');
-  const client = new containerAnalysis.v1beta1.GrafeasV1Beta1Client();
+  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
+  const client = new ContainerAnalysisClient();
 
   // Construct request
   // Associate the Note with a metadata type
