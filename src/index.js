@@ -78,6 +78,7 @@
 // Import the clients for each version supported by this package.
 const gapic = Object.freeze({
   v1: require('./v1'),
+  v1beta1: require('./v1beta1'),
 });
 
 /**
@@ -122,6 +123,7 @@ module.exports = gapic.v1;
  *   Reference to {@link v1.ContainerAnalysisClient}
  */
 module.exports.v1 = gapic.v1;
+module.exports.v1beta1 = gapic.v1beta1;
 
 // Alias `module.exports` as `module.exports.default`, for future-proofing.
 module.exports.default = Object.assign({}, module.exports);

@@ -14,8 +14,8 @@ async function main(
   // const occurrenceId = 'my-occurrence' // The API-generated identifier associated with the occurrence
 
   // Import the library and create a client
-  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
-  const client = new ContainerAnalysisClient();
+  const containerAnalysis = require('@google-cloud/containeranalysis');
+  const client = new containerAnalysis.v1beta1.GrafeasV1Beta1Client();
 
   // Get full path to occurrence
   const formattedName = client.occurrencePath(projectId, occurrenceId);
