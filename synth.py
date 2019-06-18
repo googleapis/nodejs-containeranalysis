@@ -23,11 +23,11 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Run the gapic generator
 gapic = gcp.GAPICGenerator()
-versions = ['v1beta1', 'v1', 'src/index.js']
+versions = ['v1beta1', 'v1']
 for version in versions:
     library = gapic.node_library('containeranalysis', version,
             config_path=f"/google/devtools/containeranalysis/artman_containeranalysis_{version}.yaml")
-    s.copy(library, excludes=['package.json', 'README.md'])
+    s.copy(library, excludes=['package.json', 'README.md', 'src/index.js', 'test/gapic-v1beta1.js'])
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
