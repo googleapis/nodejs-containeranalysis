@@ -14,22 +14,34 @@ async function main(
   // const noteId = 'my-note-id' // Id of the note
 
   // Import the library and create a client
-  const { GrafeasClient } = require('@google-cloud/containeranalysis');
-  const client = new GrafeasClient();
+  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
+  const client = new ContainerAnalysisClient();
+  const grafeasClient = client.getGrafeasClient();
 
   // Construct request
   // Associate the Note with a metadata type
   // https://cloud.google.com/container-registry/docs/container-analysis#supported_metadata_types
   // Here, we use the type "vulnerabiltity"
-  const formattedParent = client.projectPath(projectId);
+  const formattedParent = grafeasClient.projectPath(projectId);
 
   // Creates and returns a new Note
-  const [note] = await client.createNote({
+  const [note] = await grafeasClient.createNote({
     parent: formattedParent,
     noteId: noteId,
     note: {
       vulnerability: {
-        details: [{affected_cpe_uri: 'aaa', affected_package: 'aaa'}]
+        details: [
+          {
+            affectedCpeUri: 'foo.uri',
+            affectedPackage: 'foo',
+            minAffectedVersion: {
+              kind: 2,
+            },
+            fixedVersion: {
+              kind: 3,
+            },
+          },
+        ],
       },
     },
   });

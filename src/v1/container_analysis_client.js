@@ -16,6 +16,7 @@
 
 const gapicConfig = require('./container_analysis_client_config.json');
 const gax = require('google-gax');
+const {GrafeasClient} = require('@google-cloud/grafeas');
 const path = require('path');
 
 const VERSION = require('../../package.json').version;
@@ -159,6 +160,10 @@ class ContainerAnalysisClient {
         null
       );
     }
+
+    // the fully hydrated options object is used to
+    // to initialize a Grafeas client, if getGrafeasClient is called.
+    this.opts = opts;
   }
 
   /**
@@ -446,6 +451,10 @@ class ContainerAnalysisClient {
    */
   matchNoteFromNoteName(noteName) {
     return this._pathTemplates.notePathTemplate.match(noteName).note;
+  }
+
+  getGrafeasClient() {
+    return new GrafeasClient(this.opts);
   }
 }
 
