@@ -1,6 +1,6 @@
 // sample-metadata:
 //   title: Quickstart
-//   description: fetching an instance of Grafeas and creating an note.
+//   description: fetching an instance of Grafeas and creating a note.
 //   usage: node quickstart.js "project-id" "note-id"
 async function main(
   projectId = 'your-project-id', // Your GCP Project ID

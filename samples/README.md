@@ -266,7 +266,7 @@ __Usage:__
 
 ### Quickstart
 
-fetching an instance of Grafeas and creating an note.
+fetching an instance of Grafeas and creating a note.
 
 View the [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/master/samples/quickstart.js).
 
