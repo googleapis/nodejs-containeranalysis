@@ -35,10 +35,10 @@ async function main(
             affectedCpeUri: 'foo.uri',
             affectedPackage: 'foo',
             minAffectedVersion: {
-              kind: 2,
+              kind: 'MINIMUM',
             },
             fixedVersion: {
-              kind: 3,
+              kind: 'MAXIMUM',
             },
           },
         ],
