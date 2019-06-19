@@ -115,7 +115,7 @@ const gapic = Object.freeze({
  * @property {constructor} ContainerAnalysisClient
  *   Reference to {@link v1.ContainerAnalysisClient}
  */
-module.exports = gapic.v1;
+module.exports = require('@google-cloud/grafeas');
 
 /**
  * @type {object}
