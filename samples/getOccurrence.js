@@ -18,7 +18,9 @@ async function main(
   const client = new ContainerAnalysisClient();
 
   // Get full path to occurrence
-  const formattedName = client.getGrafeasClient().occurrencePath(projectId, occurrenceId);
+  const formattedName = client
+    .getGrafeasClient()
+    .occurrencePath(projectId, occurrenceId);
 
   // Retrieves the specified occurrence
   const [occurrence] = await client.getGrafeasClient().getOccurrence({

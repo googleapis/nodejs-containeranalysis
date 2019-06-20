@@ -114,7 +114,7 @@ describe('Note tests', () => {
       noteId: `${noteId}-discovery`,
       note: {
         discovery: {
-          analysisKind: "DISCOVERY"
+          analysisKind: 'DISCOVERY',
         },
       },
     };
@@ -127,7 +127,7 @@ describe('Note tests', () => {
         noteName: `${formattedNoteName}-discovery`,
         resourceUri: resourceUrl,
         discovery: {
-            analysisStatus: 'FINISHED_SUCCESS',
+          analysisStatus: 'FINISHED_SUCCESS',
         },
       },
     };
@@ -183,7 +183,7 @@ describe('Note tests', () => {
                 kind: 'MAXIMUM',
               },
             },
-          ]
+          ],
         },
       },
     };
@@ -236,7 +236,7 @@ describe('polling', () => {
       noteId: `${noteId}-discovery-polling`,
       note: {
         discovery: {
-          analysisKind: "DISCOVERY"
+          analysisKind: 'DISCOVERY',
         },
       },
     };
@@ -249,7 +249,7 @@ describe('polling', () => {
         noteName: `${formattedNoteName}-discovery-polling`,
         resourceUri: resourceUrl,
         discovery: {
-            analysisStatus: 'FINISHED_SUCCESS',
+          analysisStatus: 'FINISHED_SUCCESS',
         },
       },
     };
@@ -258,13 +258,17 @@ describe('polling', () => {
   });
 
   after(async () => {
-    const [discoveryOccurrences] = await client.getGrafeasClient().listNoteOccurrences({
+    const [
+      discoveryOccurrences,
+    ] = await client.getGrafeasClient().listNoteOccurrences({
       name: `${formattedNoteName}-discovery-polling`,
     });
     discoveryOccurrences.forEach(async occurrence => {
       await client.getGrafeasClient().deleteOccurrence({name: occurrence.name});
     });
-    await client.getGrafeasClient().deleteNote({name: `${formattedNoteName}-discovery-polling`});
+    await client
+      .getGrafeasClient()
+      .deleteNote({name: `${formattedNoteName}-discovery-polling`});
   });
 
   it('should successfully poll latest discovery occurrence', () => {
@@ -315,7 +319,9 @@ describe('pubsub', () => {
   });
 
   afterEach(async () => {
-    await client.getGrafeasClient().deleteNote({name: `${formattedNoteName}-pubsub`});
+    await client
+      .getGrafeasClient()
+      .deleteNote({name: `${formattedNoteName}-pubsub`});
     await pubsub.subscription(subscriptionId).delete();
   });
 
@@ -338,7 +344,7 @@ describe('pubsub', () => {
                 kind: 'MAXIMUM',
               },
             },
-          ]
+          ],
         },
       },
     };
@@ -356,10 +362,12 @@ describe('pubsub', () => {
     assert.include(empty, `Polled 0 occurrences`);
     // create test occurrences
     for (let i = 0; i < expectedNum; i++) {
-      const [pubSubOccurrence] = await client.getGrafeasClient().createOccurrence(
-        pubSubOccurrenceReq
-      );
-      await client.getGrafeasClient().deleteOccurrence({name: pubSubOccurrence.name});
+      const [
+        pubSubOccurrence,
+      ] = await client.getGrafeasClient().createOccurrence(pubSubOccurrenceReq);
+      await client
+        .getGrafeasClient()
+        .deleteOccurrence({name: pubSubOccurrence.name});
     }
     const output = execSync(
       `node occurrencePubSub.js "${projectId}" "${subscriptionId}" "${timeoutSeconds}"`

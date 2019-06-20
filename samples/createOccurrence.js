@@ -22,8 +22,12 @@ async function main(
   const client = new ContainerAnalysisClient();
 
   // Construct request
-  const formattedParent = client.getGrafeasClient().projectPath(occurrenceProjectId);
-  const formattedNote = client.getGrafeasClient().notePath(noteProjectId, noteId);
+  const formattedParent = client
+    .getGrafeasClient()
+    .projectPath(occurrenceProjectId);
+  const formattedNote = client
+    .getGrafeasClient()
+    .notePath(noteProjectId, noteId);
 
   // Creates and returns a new Occurrence associated with an existing Note
   const [occurrence] = await client.getGrafeasClient().createOccurrence({
@@ -43,7 +47,7 @@ async function main(
               kind: 'MAXIMUM',
             },
           },
-        ]
+        ],
       },
     },
   });
