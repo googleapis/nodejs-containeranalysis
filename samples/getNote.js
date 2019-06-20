@@ -20,7 +20,7 @@ async function main(
   // Get the full path to the note
   const formattedName = client.notePath(projectId, noteId);
   // Retrieve the specified note
-  const [note] = await client.getNote({name: formattedName});
+  const [note] = await client.getGrafeasClient().getNote({name: formattedName});
 
   console.log(`Note name: ${note.name}`);
   // [END containeranalysis_get_note]

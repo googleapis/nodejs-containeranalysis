@@ -18,10 +18,10 @@ async function main(
   const client = new ContainerAnalysisClient();
 
   // Get full path to occurrence
-  const formattedName = client.occurrencePath(projectId, occurrenceId);
+  const formattedName = client.getGrafeasClient().occurrencePath(projectId, occurrenceId);
 
   // Deletes an existing Occurrence from the server
-  await client.deleteOccurrence({
+  await client.getGrafeasClient().deleteOccurrence({
     name: formattedName,
   });
 

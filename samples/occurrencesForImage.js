@@ -17,10 +17,10 @@ async function main(
   const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
   const client = new ContainerAnalysisClient();
 
-  const formattedParent = client.projectPath(projectId);
+  const formattedParent = client.getGrafeasClient().projectPath(projectId);
 
   // Retrieves all the Occurrences associated with a specified image
-  const [occurrences] = await client.listOccurrences({
+  const [occurrences] = await client.getGrafeasClient().listOccurrences({
     parent: formattedParent,
     filter: `resourceUrl = "${imageUrl}"`,
   });
@@ -29,9 +29,6 @@ async function main(
     console.log(`Occurrences for ${imageUrl}`);
     occurrences.forEach(occurrence => {
       console.log(`${occurrence.name}:`);
-      console.log(
-        `  Created: ${new Date(occurrence.createTime.seconds * 1000)}`
-      );
     });
   } else {
     console.log('No occurrences found.');

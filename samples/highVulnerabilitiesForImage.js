@@ -17,10 +17,10 @@ async function main(
   const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
   const client = new ContainerAnalysisClient();
 
-  const formattedParent = client.projectPath(projectId);
+  const formattedParent = client.getGrafeasClient().projectPath(projectId);
 
   // Retrieve a list of vulnerability occurrences with a severity level of 'HIGH' or greater
-  const [occurrences] = await client.listOccurrences({
+  const [occurrences] = await client.getGrafeasClient().listOccurrences({
     parent: formattedParent,
     filter: `kind = "VULNERABILITY" AND resourceUrl = "${imageUrl}"`,
   });
@@ -33,9 +33,6 @@ async function main(
         occurrence.vulnerability.severity === 'CRITICAL'
       ) {
         console.log(`${occurrence.name}:`);
-        console.log(
-          `  Created: ${new Date(occurrence.createTime.seconds * 1000)}`
-        );
       }
     });
   } else {

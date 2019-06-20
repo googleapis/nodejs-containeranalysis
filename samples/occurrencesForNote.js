@@ -21,16 +21,13 @@ async function main(
   const formattedNote = client.notePath(projectId, noteId);
 
   // Retrieves all the Occurrences associated with a specified Note
-  const [occurrences] = await client.listNoteOccurrences({
+  const [occurrences] = await client.getGrafeasClient().listNoteOccurrences({
     name: formattedNote,
   });
   if (occurrences.length) {
     console.log('Occurrences:');
     occurrences.forEach(occurrence => {
       console.log(`${occurrence.name}:`);
-      console.log(
-        `  Created: ${new Date(occurrence.createTime.seconds * 1000)}`
-      );
     });
   } else {
     console.log('No occurrences found.');

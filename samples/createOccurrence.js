@@ -22,17 +22,28 @@ async function main(
   const client = new ContainerAnalysisClient();
 
   // Construct request
-  const formattedParent = client.projectPath(occurrenceProjectId);
-  const formattedNote = client.notePath(noteProjectId, noteId);
+  const formattedParent = client.getGrafeasClient().projectPath(occurrenceProjectId);
+  const formattedNote = client.getGrafeasClient().notePath(noteProjectId, noteId);
 
   // Creates and returns a new Occurrence associated with an existing Note
-  const [occurrence] = await client.createOccurrence({
+  const [occurrence] = await client.getGrafeasClient().createOccurrence({
     parent: formattedParent,
     occurrence: {
       noteName: formattedNote,
-      vulnerability: {},
-      resource: {
-        uri: imageUrl,
+      resourceUri: imageUrl,
+      vulnerability: {
+        packageIssue: [
+          {
+            affectedCpeUri: 'foo.uri',
+            affectedPackage: 'foo',
+            minAffectedVersion: {
+              kind: 'MINIMUM',
+            },
+            fixedVersion: {
+              kind: 'MAXIMUM',
+            },
+          },
+        ]
       },
     },
   });

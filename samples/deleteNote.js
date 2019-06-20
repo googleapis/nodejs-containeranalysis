@@ -21,7 +21,7 @@ async function main(
   const formattedName = client.notePath(projectId, noteId);
 
   // Delete the note
-  await client.deleteNote({name: formattedName});
+  await client.getGrafeasClient().deleteNote({name: formattedName});
   console.log(`Note ${formattedName} deleted.`);
   // [END containeranalysis_delete_note]
 }
