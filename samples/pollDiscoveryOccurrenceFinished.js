@@ -16,8 +16,8 @@ async function main(
   // const retries = 5 // The number of retries to listen for the new Pub/Sub messages
 
   // Import the library and create a client
-  const containerAnalysis = require('@google-cloud/containeranalysis');
-  const client = new containerAnalysis.v1beta1.GrafeasV1Beta1Client();
+  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
+  const client = new ContainerAnalysisClient();
 
   const formattedParent = client.projectPath(projectId);
 
