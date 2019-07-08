@@ -286,11 +286,12 @@ describe('pubsub', () => {
     formattedParent = `projects/${projectId}`;
     formattedNoteName = `projects/${projectId}/notes/${noteId}`;
     try {
-      topic = pubsub.topic(topicName);
-    } catch (err) {
+      // attempt to create topic if missing
       await pubsub.createTopic(topicName);
-      await topic = pubsub.topic(topicName);
+    } catch (err) {
+      console.log(`topic creation failed: ${topicName}`);
     }
+    topic = pubsub.topic(topicName);
   });
 
   beforeEach(async () => {
