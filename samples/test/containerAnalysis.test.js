@@ -16,7 +16,7 @@ const retries = 5;
 
 const {PubSub} = require('@google-cloud/pubsub');
 const pubsub = new PubSub();
-const topicName = 'container-analysis-occurrences-v1beta1';
+const topicName = 'container-analysis-occurrences-v1';
 let topic;
 
 let projectId;
