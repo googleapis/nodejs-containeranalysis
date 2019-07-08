@@ -151,10 +151,10 @@ describe('Note tests', () => {
             {
               affectedCpeUri: 'foo.uri',
               affectedPackage: 'foo',
-              minAffectedVersion: {
+              affectedVersionStart: {
                 kind: 'MINIMUM',
               },
-              fixedVersion: {
+              affectedVersionEnd: {
                 kind: 'MAXIMUM',
               },
             },
@@ -176,7 +176,7 @@ describe('Note tests', () => {
             {
               affectedCpeUri: 'foo.uri',
               affectedPackage: 'foo',
-              minAffectedVersion: {
+              affectedVersion: {
                 kind: 'MINIMUM',
               },
               fixedVersion: {
@@ -305,10 +305,10 @@ describe('pubsub', () => {
             {
               affectedCpeUri: 'foo.uri',
               affectedPackage: 'foo',
-              minAffectedVersion: {
+              affectedVersionStart: {
                 kind: 'MINIMUM',
               },
-              fixedVersion: {
+              affectedVersionEnd: {
                 kind: 'MAXIMUM',
               },
             },
@@ -338,7 +338,7 @@ describe('pubsub', () => {
             {
               affectedCpeUri: 'foo.uri',
               affectedPackage: 'foo',
-              minAffectedVersion: {
+              affectedVersion: {
                 kind: 'MINIMUM',
               },
               fixedVersion: {
