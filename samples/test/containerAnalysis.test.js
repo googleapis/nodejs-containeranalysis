@@ -289,7 +289,7 @@ describe('pubsub', () => {
       topic = pubsub.topic(topicName);
     } catch (err) {
       await pubsub.createTopic(topicName);
-      topic = pubsub.topic(topicName);
+      await topic = pubsub.topic(topicName);
     }
   });
 
