@@ -4,6 +4,14 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/containeranalysis?activeTab=versions
 
+### [1.3.4](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v1.3.3...v1.3.4) (2019-09-03)
+
+
+### Bug Fixes
+
+* set proper version # for x-goog-api-client ([8245809](https://www.github.com/googleapis/nodejs-containeranalysis/commit/8245809))
+* **docs:** remove anchor from reference doc link ([658df48](https://www.github.com/googleapis/nodejs-containeranalysis/commit/658df48))
+
 ### [1.3.3](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v1.3.2...v1.3.3) (2019-08-16)
 
 
