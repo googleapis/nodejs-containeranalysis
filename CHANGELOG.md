@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/containeranalysis?activeTab=versions
 
+### [1.4.1](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v1.4.0...v1.4.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @google-cloud/pubsub to v1 ([#84](https://www.github.com/googleapis/nodejs-containeranalysis/issues/84)) ([3592d57](https://www.github.com/googleapis/nodejs-containeranalysis/commit/3592d57))
+
 ## [1.4.0](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v1.3.3...v1.4.0) (2019-09-16)
 
 
