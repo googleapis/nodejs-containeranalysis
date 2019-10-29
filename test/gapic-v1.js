@@ -24,14 +24,12 @@ error.code = FAKE_STATUS_CODE;
 
 describe('ContainerAnalysisClient', () => {
   it('has servicePath', () => {
-    const servicePath =
-      containeranalysisModule.v1.ContainerAnalysisClient.servicePath;
+    const servicePath = containeranalysisModule.v1.ContainerAnalysisClient.servicePath;
     assert(servicePath);
   });
 
   it('has apiEndpoint', () => {
-    const apiEndpoint =
-      containeranalysisModule.v1.ContainerAnalysisClient.apiEndpoint;
+    const apiEndpoint = containeranalysisModule.v1.ContainerAnalysisClient.apiEndpoint;
     assert(apiEndpoint);
   });
 
@@ -47,9 +45,7 @@ describe('ContainerAnalysisClient', () => {
   });
 
   it('should create a client with gRPC fallback', () => {
-    const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-      fallback: true,
-    });
+    const client = new containeranalysisModule.v1.ContainerAnalysisClient({fallback: true});
     assert(client);
   });
 
@@ -241,6 +237,7 @@ describe('ContainerAnalysisClient', () => {
       });
     });
   });
+
 });
 
 function mockSimpleGrpcMethod(expectedRequest, response, error) {

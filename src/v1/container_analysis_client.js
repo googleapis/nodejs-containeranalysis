@@ -17,7 +17,7 @@
 const gapicConfig = require('./container_analysis_client_config.json');
 const gax = require('google-gax');
 const path = require('path');
-const {GrafeasClient} = require('@google-cloud/grafeas');
+const { GrafeasClient } = require('@google-cloud/grafeas');
 
 const VERSION = require('../../package.json').version;
 
@@ -82,7 +82,9 @@ class ContainerAnalysisClient {
     const gaxModule = !global.isBrowser && opts.fallback ? gax.fallback : gax;
 
     const servicePath =
-      opts.servicePath || opts.apiEndpoint || this.constructor.servicePath;
+      opts.servicePath ||
+      opts.apiEndpoint ||
+      this.constructor.servicePath;
 
     // Ensure that options include the service address and port.
     opts = Object.assign(
@@ -123,15 +125,11 @@ class ContainerAnalysisClient {
     // For Node.js, pass the path to JSON proto file.
     // For browsers, pass the JSON content.
 
-    const nodejsProtoPath = path.join(
-      __dirname,
-      '..',
-      '..',
-      'protos',
-      'protos.json'
-    );
+    const nodejsProtoPath = path.join(__dirname, '..', '..', 'protos', 'protos.json');
     const protos = gaxGrpc.loadProto(
-      opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
+      opts.fallback ?
+        require("../../protos/protos.json") :
+        nodejsProtoPath
     );
 
     // This API contains "path templates"; forward-slash-separated
@@ -162,11 +160,9 @@ class ContainerAnalysisClient {
     // Put together the "service stub" for
     // google.devtools.containeranalysis.v1.ContainerAnalysis.
     const containerAnalysisStub = gaxGrpc.createStub(
-      opts.fallback
-        ? protos.lookupService(
-            'google.devtools.containeranalysis.v1.ContainerAnalysis'
-          )
-        : protos.google.devtools.containeranalysis.v1.ContainerAnalysis,
+      opts.fallback ?
+        protos.lookupService('google.devtools.containeranalysis.v1.ContainerAnalysis') :
+        protos.google.devtools.containeranalysis.v1.ContainerAnalysis,
       opts
     );
 
@@ -198,6 +194,7 @@ class ContainerAnalysisClient {
     this.opts = opts;
   }
 
+
   /**
    * The DNS address for this API service.
    */
@@ -225,7 +222,9 @@ class ContainerAnalysisClient {
    * in this service.
    */
   static get scopes() {
-    return ['https://www.googleapis.com/auth/cloud-platform'];
+    return [
+      'https://www.googleapis.com/auth/cloud-platform',
+    ];
   }
 
   /**
@@ -306,11 +305,10 @@ class ContainerAnalysisClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.setIamPolicy(request, options, callback);
   }
@@ -373,11 +371,10 @@ class ContainerAnalysisClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
@@ -444,11 +441,10 @@ class ContainerAnalysisClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.testIamPermissions(request, options, callback);
   }
@@ -493,7 +489,9 @@ class ContainerAnalysisClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromNoteName(noteName) {
-    return this._pathTemplates.notePathTemplate.match(noteName).project;
+    return this._pathTemplates.notePathTemplate
+      .match(noteName)
+      .project;
   }
 
   /**
@@ -506,6 +504,7 @@ class ContainerAnalysisClient {
   matchNoteFromNoteName(noteName) {
     return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
+
 
   /**
    * Returns an instance of a @google-cloud/grafeas client, configured to
@@ -528,7 +527,8 @@ class ContainerAnalysisClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromOccurrenceName(occurrenceName) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
+    return this._pathTemplates.occurrencePathTemplate
+      .match(occurrenceName)
       .project;
   }
 
@@ -540,9 +540,11 @@ class ContainerAnalysisClient {
    * @returns {String} - A string representing the occurrence.
    */
   matchOccurrenceFromOccurrenceName(occurrenceName) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
+    return this._pathTemplates.occurrencePathTemplate
+      .match(occurrenceName)
       .occurrence;
   }
 }
+
 
 module.exports = ContainerAnalysisClient;
