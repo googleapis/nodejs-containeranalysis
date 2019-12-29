@@ -17,4 +17,8 @@
 const assert = require('assert');
 const {describe, it} = require('mocha');
 
-assert.ok('we should really write a system test');
+describe('container analysis', () => {
+  it('should have tests', () => {
+    assert.ok('we should really write a system test');
+  });
+});
