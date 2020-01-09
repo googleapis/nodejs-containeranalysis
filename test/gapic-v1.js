@@ -62,10 +62,10 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const policy = {};
       const request = {
-        resource: formattedResource,
+        resource: resource,
         policy: policy,
       };
 
@@ -97,10 +97,10 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const policy = {};
       const request = {
-        resource: formattedResource,
+        resource: resource,
         policy: policy,
       };
 
@@ -128,9 +128,9 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const request = {
-        resource: formattedResource,
+        resource: resource,
       };
 
       // Mock response
@@ -161,9 +161,9 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const request = {
-        resource: formattedResource,
+        resource: resource,
       };
 
       // Mock Grpc layer
@@ -190,10 +190,10 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const permissions = [];
       const request = {
-        resource: formattedResource,
+        resource: resource,
         permissions: permissions,
       };
 
@@ -220,10 +220,10 @@ describe('ContainerAnalysisClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+      const resource = 'resource-341064690';
       const permissions = [];
       const request = {
-        resource: formattedResource,
+        resource: resource,
         permissions: permissions,
       };
 

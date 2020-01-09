@@ -134,18 +134,6 @@ class ContainerAnalysisClient {
       opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
     );
 
-    // This API contains "path templates"; forward-slash-separated
-    // identifiers to uniquely identify resources within the API.
-    // Create useful helper objects for these.
-    this._pathTemplates = {
-      notePathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/notes/{note}'
-      ),
-      occurrencePathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/occurrences/{occurrence}'
-      ),
-    };
-
     // Put together the default options sent with requests.
     const defaults = gaxGrpc.constructSettings(
       'google.devtools.containeranalysis.v1.ContainerAnalysis',
@@ -282,10 +270,10 @@ class ContainerAnalysisClient {
    *   // optional auth parameters.
    * });
    *
-   * const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+   * const resource = '';
    * const policy = {};
    * const request = {
-   *   resource: formattedResource,
+   *   resource: resource,
    *   policy: policy,
    * };
    * client.setIamPolicy(request)
@@ -354,8 +342,8 @@ class ContainerAnalysisClient {
    *   // optional auth parameters.
    * });
    *
-   * const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
-   * client.getIamPolicy({resource: formattedResource})
+   * const resource = '';
+   * client.getIamPolicy({resource: resource})
    *   .then(responses => {
    *     const response = responses[0];
    *     // doThingsWith(response)
@@ -420,10 +408,10 @@ class ContainerAnalysisClient {
    *   // optional auth parameters.
    * });
    *
-   * const formattedResource = client.notePath('[PROJECT]', '[NOTE]');
+   * const resource = '';
    * const permissions = [];
    * const request = {
-   *   resource: formattedResource,
+   *   resource: resource,
    *   permissions: permissions,
    * };
    * client.testIamPermissions(request)
@@ -451,97 +439,6 @@ class ContainerAnalysisClient {
     });
 
     return this._innerApiCalls.testIamPermissions(request, options, callback);
-  }
-
-  // --------------------
-  // -- Path templates --
-  // --------------------
-
-  /**
-   * Return a fully-qualified note resource name string.
-   *
-   * @param {String} project
-   * @param {String} note
-   * @returns {String}
-   */
-  notePath(project, note) {
-    return this._pathTemplates.notePathTemplate.render({
-      project: project,
-      note: note,
-    });
-  }
-
-  /**
-   * Return a fully-qualified occurrence resource name string.
-   *
-   * @param {String} project
-   * @param {String} occurrence
-   * @returns {String}
-   */
-  occurrencePath(project, occurrence) {
-    return this._pathTemplates.occurrencePathTemplate.render({
-      project: project,
-      occurrence: occurrence,
-    });
-  }
-
-  /**
-   * Parse the noteName from a note resource.
-   *
-   * @param {String} noteName
-   *   A fully-qualified path representing a note resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromNoteName(noteName) {
-    return this._pathTemplates.notePathTemplate.match(noteName).project;
-  }
-
-  /**
-   * Parse the noteName from a note resource.
-   *
-   * @param {String} noteName
-   *   A fully-qualified path representing a note resources.
-   * @returns {String} - A string representing the note.
-   */
-  matchNoteFromNoteName(noteName) {
-    return this._pathTemplates.notePathTemplate.match(noteName).note;
-  }
-
-  /**
-   * Returns an instance of a @google-cloud/grafeas client, configured to
-   * connect to Google Cloud's Container Analysis API. For documentation
-   * on this client, see:
-   * <a href="https://googleapis.dev/nodejs/grafeas/latest/index.html">https://googleapis.dev/nodejs/grafeas/latest/index.html</a>
-   *
-   * @returns {GrafeasClient} - An instance of a Grafeas client.
-   *
-   */
-  getGrafeasClient() {
-    return new GrafeasClient(this.opts);
-  }
-
-  /**
-   * Parse the occurrenceName from a occurrence resource.
-   *
-   * @param {String} occurrenceName
-   *   A fully-qualified path representing a occurrence resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromOccurrenceName(occurrenceName) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
-      .project;
-  }
-
-  /**
-   * Parse the occurrenceName from a occurrence resource.
-   *
-   * @param {String} occurrenceName
-   *   A fully-qualified path representing a occurrence resources.
-   * @returns {String} - A string representing the occurrence.
-   */
-  matchOccurrenceFromOccurrenceName(occurrenceName) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
-      .occurrence;
   }
 }
 
