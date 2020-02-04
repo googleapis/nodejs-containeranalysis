@@ -1574,9 +1574,6 @@ export class GrafeasV1Beta1Client {
     ] = gax.routingHeader.fromParams({
       name: request.name || '',
     });
-    console.warn('enter list note occurence');
-    console.warn('request: ', request);
-    console.warn('options: ', options);
     return this._innerApiCalls.listNoteOccurrences(request, options, callback);
   }
 

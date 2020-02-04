@@ -40,7 +40,6 @@ async function main(
   const [occurrences] = await client.getGrafeasClient().listNoteOccurrences({
     name: formattedNote,
   });
-  console.warn('occurences: ', occurrences);
   if (occurrences.length) {
     console.log('Occurrences:');
     occurrences.forEach(occurrence => {
