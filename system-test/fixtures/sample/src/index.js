@@ -18,7 +18,7 @@
 
 
 /* eslint-disable node/no-missing-require, no-unused-vars */
-const containeranalysis = require('@google-cloud/container-analysis');
+const containeranalysis = require('@google-cloud/containeranalysis');
 
 function main() {
   const containerAnalysisClient = new containeranalysis.ContainerAnalysisClient();

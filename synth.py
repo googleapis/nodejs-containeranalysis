@@ -29,7 +29,7 @@ for version in versions:
       'containeranalysis', version,
       generator_args={
             "grpc-service-config": f"google/devtools/containeranalysis/{version}/containeranalysis_grpc_service_config.json",
-            "package-name": f"@google-cloud/container-analysis",
+            "package-name": f"@google-cloud/containeranalysis",
             "main-service": f"containeranalysis"
             },
         proto_path=f'/google/devtools/containeranalysis/{version}',

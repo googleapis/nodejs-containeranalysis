@@ -16,7 +16,7 @@
 // ** https://github.com/googleapis/gapic-generator-typescript **
 // ** All changes to this file may be overwritten. **
 
-import {ContainerAnalysisClient, GrafeasClient} from '@google-cloud/container-analysis';
+import {ContainerAnalysisClient, GrafeasClient} from '@google-cloud/containeranalysis';
 
 function main() {
   const containerAnalysisClient = new ContainerAnalysisClient();
