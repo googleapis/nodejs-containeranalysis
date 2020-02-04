@@ -16,4 +16,6 @@
 // ** https://github.com/googleapis/gapic-generator-typescript **
 // ** All changes to this file may be overwritten. **
 
-export {ContainerAnalysisV1Beta1Client} from './container_analysis_v1_beta1_client';export {GrafeasClient} from './grafeas_client';export {GrafeasV1Beta1Client} from './grafeas_v1_beta1_client';
+export {ContainerAnalysisV1Beta1Client} from './container_analysis_v1_beta1_client';
+export {GrafeasClient} from './grafeas_client';
+export {GrafeasV1Beta1Client} from './grafeas_v1_beta1_client';
