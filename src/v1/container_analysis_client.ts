@@ -25,7 +25,7 @@ import {
   ClientOptions,
 } from 'google-gax';
 import * as path from 'path';
-const { GrafeasClient } = require('@google-cloud/grafeas');
+const {GrafeasClient} = require('@google-cloud/grafeas');
 
 import * as protosTypes from '../../protos/protos';
 import * as gapicConfig from './container_analysis_client_config.json';
@@ -55,7 +55,7 @@ export class ContainerAnalysisClient {
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
   auth: gax.GoogleAuth;
-  opts:ClientOptions;
+  opts: ClientOptions;
   containerAnalysisStub: Promise<{[name: string]: Function}>;
 
   /**
@@ -213,7 +213,7 @@ export class ContainerAnalysisClient {
         defaults[methodName],
         this._descriptors.page[methodName] ||
           this._descriptors.stream[methodName] ||
-          this._descriptors.longrunning[methodName],
+          this._descriptors.longrunning[methodName]
       );
 
       this._innerApiCalls[methodName] = (
@@ -582,7 +582,7 @@ export class ContainerAnalysisClient {
   matchNoteFromNoteName(noteName: string) {
     return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
-    /**
+  /**
    * Returns an instance of a @google-cloud/grafeas client, configured to
    * connect to Google Cloud's Container Analysis API. For documentation
    * on this client, see:
