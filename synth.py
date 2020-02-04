@@ -52,7 +52,8 @@ s.replace('src/v1beta1/*.ts',
         'https://grafeas.io')
 
 s.replace('tslint.json', '"extends": "gts/tslint.json"', '"extends": "gts/tslint.json", "linterOptions": {"exclude": ["src/index.ts"]}')
-# perform surgery inserting the Grafeas client.
+# perform surgery inserting the Grafeas client. 
+# TODO: replacement not working, ts client further needs opts: ClientOptions
 s.replace("src/v1/container_analysis_client.ts",
 r"""import * as path from 'path';
 """,
