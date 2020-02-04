@@ -42,6 +42,11 @@ common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
+# # fix the URL of grafeas.io (this is already fixed upstream).
+s.replace('src/v1beta1/*.ts',
+        'grafeas.io',
+        'https://grafeas.io')
+
 # perform surgery inserting the Grafeas client. 
 s.replace("src/v1/container_analysis_client.ts",
 """import \* as path from \'path\';
