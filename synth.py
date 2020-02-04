@@ -43,6 +43,7 @@ templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
 s.replace('src/v1beta1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\'', '')
+s.replace('src/v1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\'', '')
 s.replace('src/index.ts', 'v1beta1.GrafeasClient', 'v1beta1.GrafeasV1Beta1Client')
 # Node.js specific cleanup
 subprocess.run(['rm', 'src/v1/grafeas_client.ts']) 
