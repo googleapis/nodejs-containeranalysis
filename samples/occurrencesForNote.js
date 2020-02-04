@@ -40,14 +40,16 @@ async function main(
   const [occurrences] = await client.getGrafeasClient().listNoteOccurrences({
     name: formattedNote,
   });
-  console.warn('result: ', occurrences);
-  console.warn('length: ', occurrences.length);
+
   if (occurrences.length) {
     console.log('Occurrences:');
+    console.warn('warning ....');
     occurrences.forEach(occurrence => {
       console.log(`${occurrence.name}:`);
+      console.warn(`${occurrence.name}:`);
     });
   } else {
+    console.warn('no results found');
     console.log('No occurrences found.');
   }
   // [END containeranalysis_occurrences_for_note]

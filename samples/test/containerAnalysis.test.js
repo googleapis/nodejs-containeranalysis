@@ -111,10 +111,12 @@ describe('Note tests', () => {
       output = execSync(
         `node occurrencesForNote.js "${projectId}" "${noteId}"`
       );
+      console.warn('i: ', i)
       if (!output.includes('No occurrences found.')) {
         break;
       }
     }
+    console.warn('output: ', output);
     assert.include(output, 'Occurrences:');
   });
 
