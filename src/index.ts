@@ -18,9 +18,9 @@
 
 import * as v1 from './v1';
 import * as v1beta1 from './v1beta1';
-const containerAnalysisClient = v1.ContainerAnalysisClient;
-const grafeasClient = v1beta1.GrafeasV1Beta1Client;
-export {v1, v1beta1, containerAnalysisClient, grafeasClient};
+const ContainerAnalysisClient = v1.ContainerAnalysisClient;
+const GrafeasClient = v1beta1.GrafeasV1Beta1Client;
+export {v1, v1beta1, ContainerAnalysisClient, GrafeasClient};
 // For compatibility with JavaScript libraries we need to provide this default export:
 // tslint:disable-next-line no-default-export
-export default {v1, v1beta1, containerAnalysisClient, grafeasClient};
+export default {v1, v1beta1, ContainerAnalysisClient, GrafeasClient};
