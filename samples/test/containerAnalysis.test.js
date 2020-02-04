@@ -29,7 +29,7 @@ const noteId = `test-note-${uuidVal}`;
 const resourceUrl = `gcr.io/test-project/test-image-${uuidVal}`;
 const subscriptionId = `occurrence-subscription-${uuidVal}`;
 const timeoutSeconds = 5;
-const retries = 5;
+const retries = 10;
 
 const {PubSub} = require('@google-cloud/pubsub');
 const pubsub = new PubSub();
@@ -111,12 +111,10 @@ describe('Note tests', () => {
       output = execSync(
         `node occurrencesForNote.js "${projectId}" "${noteId}"`
       );
-      console.warn('i: ', i)
       if (!output.includes('No occurrences found.')) {
         break;
       }
     }
-    console.warn('output: ', output);
     assert.include(output, 'Occurrences:');
   });
 

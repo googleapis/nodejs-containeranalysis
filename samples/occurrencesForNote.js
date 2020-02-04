@@ -43,13 +43,10 @@ async function main(
 
   if (occurrences.length) {
     console.log('Occurrences:');
-    console.warn('warning ....');
     occurrences.forEach(occurrence => {
       console.log(`${occurrence.name}:`);
-      console.warn(`${occurrence.name}:`);
     });
   } else {
-    console.warn('no results found');
     console.log('No occurrences found.');
   }
   // [END containeranalysis_occurrences_for_note]
