@@ -53,20 +53,38 @@ s.replace('src/v1beta1/*.ts',
 
 s.replace('tslint.json', '"extends": "gts/tslint.json"', '"extends": "gts/tslint.json", "linterOptions": {"exclude": ["src/index.ts"]}')
 # perform surgery inserting the Grafeas client. 
-# TODO: replacement not working, ts client further needs opts: ClientOptions
 s.replace("src/v1/container_analysis_client.ts",
-r"""import * as path from 'path';
+"""import \* as path from \'path\';
 """,
-r"""import * as path from 'path';
+"""import * as path from 'path';
 const { GrafeasClient } = require('@google-cloud/grafeas');
 """)
 s.replace("src/v1/container_analysis_client.ts",
-r"""
-  matchNoteFromNoteName(noteName: string) {
-    return this._pathTemplates.notePathTemplate.match(noteName).note;
+"""auth\: gax\.GoogleAuth;
+""",
+"""auth: gax.GoogleAuth;
+opts: ClientOptions;
+""")
+s.replace("src/v1/container_analysis_client.ts",
+"""  \}
+
+  \/\*\*
+   \* The DNS address for this API service\.
+   \*\/
+""",
+"""    this.opts = opts;
+  }
+
+  /**
+   * The DNS address for this API service.
+   */
+""")
+s.replace("src/v1/container_analysis_client.ts",
+r"""  matchNoteFromNoteName\(noteName: string\) {
+    return this\._pathTemplates\.notePathTemplate\.match\(noteName\)\.note;
   }
 """,
-r"""  matchNoteFromNoteName\(noteName\: string\) {
+r"""  matchNoteFromNoteName(noteName: string) {
     return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
   /**
