@@ -42,9 +42,45 @@ common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
-s.replace('src/v1beta1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\'', '')
-s.replace('src/v1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\'', '')
+s.replace('src/v1beta1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\';', '')
+s.replace('src/v1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\';', '')
 s.replace('src/index.ts', 'v1beta1.GrafeasClient', 'v1beta1.GrafeasV1Beta1Client')
+
+# fix the URL of grafeas.io (this is already fixed upstream).
+s.replace('src/v1beta1/*.ts',
+        'grafeas.io',
+        'https://grafeas.io')
+
+s.replace('tslint.json', '"extends": "gts/tslint.json"', '"extends": "gts/tslint.json", "linterOptions": {"exclude": ["src/index.ts"]}')
+# perform surgery inserting the Grafeas client.
+s.replace("src/v1/container_analysis_client.ts",
+r"""import * as path from 'path';
+""",
+r"""import * as path from 'path';
+const { GrafeasClient } = require('@google-cloud/grafeas');
+""")
+s.replace("src/v1/container_analysis_client.ts",
+r"""
+  matchNoteFromNoteName(noteName: string) {
+    return this._pathTemplates.notePathTemplate.match(noteName).note;
+  }
+""",
+r"""  matchNoteFromNoteName\(noteName\: string\) {
+    return this._pathTemplates.notePathTemplate.match(noteName).note;
+  }
+  /**
+   * Returns an instance of a @google-cloud/grafeas client, configured to
+   * connect to Google Cloud's Container Analysis API. For documentation
+   * on this client, see:
+   * <a href="https://googleapis.dev/nodejs/grafeas/latest/index.html">https://googleapis.dev/nodejs/grafeas/latest/index.html</a>
+   *
+   * @returns {GrafeasClient} - An instance of a Grafeas client.
+   *
+   */
+  getGrafeasClient() {
+    return new GrafeasClient(this.opts);
+  }
+""")
 # Node.js specific cleanup
 subprocess.run(['rm', 'src/v1/grafeas_client.ts']) 
 subprocess.run(['rm', 'src/v1/grafeas_client_config.json']) 
