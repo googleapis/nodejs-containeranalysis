@@ -22,16 +22,24 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 # Run the gapic generator
-gapic = gcp.GAPICGenerator()
+gapic = gcp.GAPICMicrogenerator()
 versions = ['v1beta1', 'v1']
 for version in versions:
-    library = gapic.node_library('containeranalysis', version,
-            config_path=f"/google/devtools/containeranalysis/artman_containeranalysis_{version}.yaml")
-    s.copy(library, excludes=['package.json', 'README.md', 'src/index.js'])
+    library = gapic.typescript_library(
+      'containeranalysis', version,
+      generator_args={
+            "grpc-service-config": f"google/cloud/containeranalysis/{version}/containeranalysis_grpc_service_config.json",
+            "package-name": f"@google-cloud/container-analysis",
+            "main-service": f"containeranalysis"
+            },
+        proto_path=f'/google/cloud/containeranalysis/{version}',
+        extra_proto_file=["google/cloud/common_resources.proto", "grafeas/v1/*.proto"]
+        )
+    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts'])
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
-templates = common_templates.node_library()
+templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
 # fix the URL of grafeas.io (this is already fixed upstream).
