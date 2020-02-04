@@ -35,23 +35,13 @@ for version in versions:
         proto_path=f'/google/devtools/containeranalysis/{version}',
         extra_proto_files=["google/cloud/common_resources.proto", "grafeas/v1"]
         )
-    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts'])
+    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts', 'src/v1beta1/*.ts', 'src/v1/index.ts',  'tslint.json'])
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
-s.replace('src/v1beta1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\';', '')
-s.replace('src/v1/index.ts', 'export {GrafeasClient} from \'./grafeas_client\';', '')
-s.replace('src/index.ts', 'v1beta1.GrafeasClient', 'v1beta1.GrafeasV1Beta1Client')
-
-# fix the URL of grafeas.io (this is already fixed upstream).
-s.replace('src/v1beta1/*.ts',
-        'grafeas.io',
-        'https://grafeas.io')
-
-s.replace('tslint.json', '"extends": "gts/tslint.json"', '"extends": "gts/tslint.json", "linterOptions": {"exclude": ["src/index.ts"]}')
 # perform surgery inserting the Grafeas client. 
 s.replace("src/v1/container_analysis_client.ts",
 """import \* as path from \'path\';

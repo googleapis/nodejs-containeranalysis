@@ -1,12 +1,13 @@
 {
-  "updateTime": "2020-02-04T07:56:40.247448Z",
+  "updateTime": "2020-02-04T19:46:07.559506Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "69d9945330a5721cd679f17331a78850e2618226",
-        "internalRef": "293080182"
+        "sha": "39bedc2e30f4778ce81193f6ba1fec56107bcfc4",
+        "internalRef": "293167048",
+        "log": "39bedc2e30f4778ce81193f6ba1fec56107bcfc4\naccessapproval: v1 publish protos\n\nPiperOrigin-RevId: 293167048\n\n"
       }
     },
     {
