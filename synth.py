@@ -101,9 +101,7 @@ r"""  matchNoteFromNoteName(noteName: string) {
   }
 """)
 # Node.js specific cleanup
-subprocess.run(['rm', 'src/v1/grafeas_client.ts']) 
-subprocess.run(['rm', 'src/v1/grafeas_client_config.json']) 
-subprocess.run(['rm', 'src/v1/grafeas_proto_list.json']) 
+subprocess.call('rm -r src/v1/grafeas_*', shell=True) 
 subprocess.run(['rm', 'src/v1beta1/grafeas_client.ts']) 
 subprocess.run(['rm', 'src/v1beta1/grafeas_client_config.json']) 
 subprocess.run(['rm', 'src/v1beta1/grafeas_proto_list.json']) 
