@@ -1,6 +1,6 @@
 {
   "interfaces": {
-    "google.devtools.containeranalysis.v1beta1.GrafeasV1Beta1": {
+    "google.devtools.containeranalysis.v1.Grafeas": {
       "retry_codes": {
         "non_idempotent": [],
         "idempotent": [
@@ -73,10 +73,6 @@
           "retry_params_name": "default"
         },
         "ListNoteOccurrences": {
-          "retry_codes_name": "non_idempotent",
-          "retry_params_name": "default"
-        },
-        "GetVulnerabilityOccurrencesSummary": {
           "retry_codes_name": "non_idempotent",
           "retry_params_name": "default"
         }
