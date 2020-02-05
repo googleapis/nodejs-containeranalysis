@@ -36,7 +36,7 @@ for version in versions:
         proto_path=f'/google/devtools/containeranalysis/{version}',
         extra_proto_files=["google/cloud/common_resources.proto", "grafeas/v1"]
         )
-    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts', 'src/v1beta1/*.ts', 'src/v1/index.ts',  'tslint.json'])
+    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts', 'tslint.json'])
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
