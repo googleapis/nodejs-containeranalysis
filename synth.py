@@ -18,6 +18,7 @@ import synthtool as s
 import synthtool.gcp as gcp
 import subprocess
 import logging
+import os
 
 logging.basicConfig(level=logging.DEBUG)
 
