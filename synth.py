@@ -36,7 +36,7 @@ for version in versions:
         proto_path=f'/google/devtools/containeranalysis/{version}',
         extra_proto_files=["google/cloud/common_resources.proto", "grafeas/v1"]
         )
-    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts', 'tslint.json'])
+    s.copy(library, excludes=['package.json', 'README.md', 'src/index.ts', 'src/v1beta1/index.ts', 'src/v1/index.ts', 'tslint.json'])
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
@@ -97,7 +97,7 @@ r"""  matchNoteFromNoteName(noteName: string) {
   }
 """)
 # Node.js specific cleanup
-to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic-grafeas_v1_beta1-v1beta1.ts', 'test/gapic-grafeas-v1.ts', 'test/gapic-grafeas-v1beta1.ts']
+to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client.ts','src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic-grafeas_v1_beta1-v1beta1.ts', 'test/gapic-grafeas-v1.ts', 'test/gapic-grafeas-v1beta1.ts']
 for filePath in to_remove:
     os.unlink(filePath)
 subprocess.run(['npm', 'install'])
