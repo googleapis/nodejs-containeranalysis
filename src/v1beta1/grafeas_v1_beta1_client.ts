@@ -155,14 +155,14 @@ export class GrafeasV1Beta1Client {
     // identifiers to uniquely identify resources within the API.
     // Create useful helper objects for these.
     this._pathTemplates = {
-      scanConfigPathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/scanConfigs/{scan_config}'
+      notePathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/notes/{note}'
       ),
       occurrencePathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/occurrences/{occurrence}'
       ),
-      notePathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/notes/{note}'
+      scanConfigPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/scanConfigs/{scan_config}'
       ),
     };
 
@@ -1342,9 +1342,17 @@ export class GrafeasV1Beta1Client {
    */
   listOccurrencesStream(
     request?: protosTypes.grafeas.v1beta1.IListOccurrencesRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listOccurrences.createStream(
       this._innerApiCalls.listOccurrences as gax.GaxCall,
@@ -1474,9 +1482,17 @@ export class GrafeasV1Beta1Client {
    */
   listNotesStream(
     request?: protosTypes.grafeas.v1beta1.IListNotesRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listNotes.createStream(
       this._innerApiCalls.listNotes as gax.GaxCall,
@@ -1608,9 +1624,17 @@ export class GrafeasV1Beta1Client {
    */
   listNoteOccurrencesStream(
     request?: protosTypes.grafeas.v1beta1.IListNoteOccurrencesRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      name: request.name || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listNoteOccurrences.createStream(
       this._innerApiCalls.listNoteOccurrences as gax.GaxCall,
@@ -1623,41 +1647,39 @@ export class GrafeasV1Beta1Client {
   // --------------------
 
   /**
-   * Return a fully-qualified scanConfig resource name string.
+   * Return a fully-qualified note resource name string.
    *
    * @param {string} project
-   * @param {string} scan_config
+   * @param {string} note
    * @returns {string} Resource name string.
    */
-  scanConfigPath(project: string, scanConfig: string) {
-    return this._pathTemplates.scanConfigPathTemplate.render({
+  notePath(project: string, note: string) {
+    return this._pathTemplates.notePathTemplate.render({
       project,
-      scan_config: scanConfig,
+      note,
     });
   }
 
   /**
-   * Parse the project from ScanConfig resource.
+   * Parse the project from Note resource.
    *
-   * @param {string} scanConfigName
-   *   A fully-qualified path representing ScanConfig resource.
+   * @param {string} noteName
+   *   A fully-qualified path representing Note resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromScanConfigName(scanConfigName: string) {
-    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
-      .project;
+  matchProjectFromNoteName(noteName: string) {
+    return this._pathTemplates.notePathTemplate.match(noteName).project;
   }
 
   /**
-   * Parse the scan_config from ScanConfig resource.
+   * Parse the note from Note resource.
    *
-   * @param {string} scanConfigName
-   *   A fully-qualified path representing ScanConfig resource.
-   * @returns {string} A string representing the scan_config.
+   * @param {string} noteName
+   *   A fully-qualified path representing Note resource.
+   * @returns {string} A string representing the note.
    */
-  matchScanConfigFromScanConfigName(scanConfigName: string) {
-    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
-      .scan_config;
+  matchNoteFromNoteName(noteName: string) {
+    return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
 
   /**
@@ -1699,39 +1721,41 @@ export class GrafeasV1Beta1Client {
   }
 
   /**
-   * Return a fully-qualified note resource name string.
+   * Return a fully-qualified scanConfig resource name string.
    *
    * @param {string} project
-   * @param {string} note
+   * @param {string} scan_config
    * @returns {string} Resource name string.
    */
-  notePath(project: string, note: string) {
-    return this._pathTemplates.notePathTemplate.render({
+  scanConfigPath(project: string, scanConfig: string) {
+    return this._pathTemplates.scanConfigPathTemplate.render({
       project,
-      note,
+      scan_config: scanConfig,
     });
   }
 
   /**
-   * Parse the project from Note resource.
+   * Parse the project from ScanConfig resource.
    *
-   * @param {string} noteName
-   *   A fully-qualified path representing Note resource.
+   * @param {string} scanConfigName
+   *   A fully-qualified path representing ScanConfig resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromNoteName(noteName: string) {
-    return this._pathTemplates.notePathTemplate.match(noteName).project;
+  matchProjectFromScanConfigName(scanConfigName: string) {
+    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
+      .project;
   }
 
   /**
-   * Parse the note from Note resource.
+   * Parse the scan_config from ScanConfig resource.
    *
-   * @param {string} noteName
-   *   A fully-qualified path representing Note resource.
-   * @returns {string} A string representing the note.
+   * @param {string} scanConfigName
+   *   A fully-qualified path representing ScanConfig resource.
+   * @returns {string} A string representing the scan_config.
    */
-  matchNoteFromNoteName(noteName: string) {
-    return this._pathTemplates.notePathTemplate.match(noteName).note;
+  matchScanConfigFromScanConfigName(scanConfigName: string) {
+    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
+      .scan_config;
   }
 
   /**

@@ -153,11 +153,11 @@ export class ContainerAnalysisClient {
     // identifiers to uniquely identify resources within the API.
     // Create useful helper objects for these.
     this._pathTemplates = {
-      occurrencePathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/occurrences/{occurrence}'
-      ),
       notePathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/notes/{note}'
+      ),
+      occurrencePathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/occurrences/{occurrence}'
       ),
     };
 
@@ -510,44 +510,6 @@ export class ContainerAnalysisClient {
   // --------------------
 
   /**
-   * Return a fully-qualified occurrence resource name string.
-   *
-   * @param {string} project
-   * @param {string} occurrence
-   * @returns {string} Resource name string.
-   */
-  occurrencePath(project: string, occurrence: string) {
-    return this._pathTemplates.occurrencePathTemplate.render({
-      project,
-      occurrence,
-    });
-  }
-
-  /**
-   * Parse the project from Occurrence resource.
-   *
-   * @param {string} occurrenceName
-   *   A fully-qualified path representing Occurrence resource.
-   * @returns {string} A string representing the project.
-   */
-  matchProjectFromOccurrenceName(occurrenceName: string) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
-      .project;
-  }
-
-  /**
-   * Parse the occurrence from Occurrence resource.
-   *
-   * @param {string} occurrenceName
-   *   A fully-qualified path representing Occurrence resource.
-   * @returns {string} A string representing the occurrence.
-   */
-  matchOccurrenceFromOccurrenceName(occurrenceName: string) {
-    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
-      .occurrence;
-  }
-
-  /**
    * Return a fully-qualified note resource name string.
    *
    * @param {string} project
@@ -593,6 +555,44 @@ export class ContainerAnalysisClient {
    */
   getGrafeasClient() {
     return new GrafeasClient(this.opts);
+  }
+
+  /**
+   * Return a fully-qualified occurrence resource name string.
+   *
+   * @param {string} project
+   * @param {string} occurrence
+   * @returns {string} Resource name string.
+   */
+  occurrencePath(project: string, occurrence: string) {
+    return this._pathTemplates.occurrencePathTemplate.render({
+      project,
+      occurrence,
+    });
+  }
+
+  /**
+   * Parse the project from Occurrence resource.
+   *
+   * @param {string} occurrenceName
+   *   A fully-qualified path representing Occurrence resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromOccurrenceName(occurrenceName: string) {
+    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
+      .project;
+  }
+
+  /**
+   * Parse the occurrence from Occurrence resource.
+   *
+   * @param {string} occurrenceName
+   *   A fully-qualified path representing Occurrence resource.
+   * @returns {string} A string representing the occurrence.
+   */
+  matchOccurrenceFromOccurrenceName(occurrenceName: string) {
+    return this._pathTemplates.occurrencePathTemplate.match(occurrenceName)
+      .occurrence;
   }
 
   /**

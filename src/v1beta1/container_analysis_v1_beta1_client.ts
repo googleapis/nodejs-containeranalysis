@@ -156,16 +156,16 @@ export class ContainerAnalysisV1Beta1Client {
     // identifiers to uniquely identify resources within the API.
     // Create useful helper objects for these.
     this._pathTemplates = {
-      scanConfigPathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/scanConfigs/{scan_config}'
+      notePathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/notes/{note}'
       ),
       occurrencePathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/occurrences/{occurrence}'
       ),
-      notePathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/notes/{note}'
-      ),
       projectPathTemplate: new gaxModule.PathTemplate('projects/{project}'),
+      scanConfigPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/scanConfigs/{scan_config}'
+      ),
     };
 
     // Some of the methods on this service return "paged" results,
@@ -811,9 +811,17 @@ export class ContainerAnalysisV1Beta1Client {
    */
   listScanConfigsStream(
     request?: protosTypes.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listScanConfigs.createStream(
       this._innerApiCalls.listScanConfigs as gax.GaxCall,
@@ -826,41 +834,39 @@ export class ContainerAnalysisV1Beta1Client {
   // --------------------
 
   /**
-   * Return a fully-qualified scanConfig resource name string.
+   * Return a fully-qualified note resource name string.
    *
    * @param {string} project
-   * @param {string} scan_config
+   * @param {string} note
    * @returns {string} Resource name string.
    */
-  scanConfigPath(project: string, scanConfig: string) {
-    return this._pathTemplates.scanConfigPathTemplate.render({
+  notePath(project: string, note: string) {
+    return this._pathTemplates.notePathTemplate.render({
       project,
-      scan_config: scanConfig,
+      note,
     });
   }
 
   /**
-   * Parse the project from ScanConfig resource.
+   * Parse the project from Note resource.
    *
-   * @param {string} scanConfigName
-   *   A fully-qualified path representing ScanConfig resource.
+   * @param {string} noteName
+   *   A fully-qualified path representing Note resource.
    * @returns {string} A string representing the project.
    */
-  matchProjectFromScanConfigName(scanConfigName: string) {
-    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
-      .project;
+  matchProjectFromNoteName(noteName: string) {
+    return this._pathTemplates.notePathTemplate.match(noteName).project;
   }
 
   /**
-   * Parse the scan_config from ScanConfig resource.
+   * Parse the note from Note resource.
    *
-   * @param {string} scanConfigName
-   *   A fully-qualified path representing ScanConfig resource.
-   * @returns {string} A string representing the scan_config.
+   * @param {string} noteName
+   *   A fully-qualified path representing Note resource.
+   * @returns {string} A string representing the note.
    */
-  matchScanConfigFromScanConfigName(scanConfigName: string) {
-    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
-      .scan_config;
+  matchNoteFromNoteName(noteName: string) {
+    return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
 
   /**
@@ -902,42 +908,6 @@ export class ContainerAnalysisV1Beta1Client {
   }
 
   /**
-   * Return a fully-qualified note resource name string.
-   *
-   * @param {string} project
-   * @param {string} note
-   * @returns {string} Resource name string.
-   */
-  notePath(project: string, note: string) {
-    return this._pathTemplates.notePathTemplate.render({
-      project,
-      note,
-    });
-  }
-
-  /**
-   * Parse the project from Note resource.
-   *
-   * @param {string} noteName
-   *   A fully-qualified path representing Note resource.
-   * @returns {string} A string representing the project.
-   */
-  matchProjectFromNoteName(noteName: string) {
-    return this._pathTemplates.notePathTemplate.match(noteName).project;
-  }
-
-  /**
-   * Parse the note from Note resource.
-   *
-   * @param {string} noteName
-   *   A fully-qualified path representing Note resource.
-   * @returns {string} A string representing the note.
-   */
-  matchNoteFromNoteName(noteName: string) {
-    return this._pathTemplates.notePathTemplate.match(noteName).note;
-  }
-
-  /**
    * Return a fully-qualified project resource name string.
    *
    * @param {string} project
@@ -958,6 +928,44 @@ export class ContainerAnalysisV1Beta1Client {
    */
   matchProjectFromProjectName(projectName: string) {
     return this._pathTemplates.projectPathTemplate.match(projectName).project;
+  }
+
+  /**
+   * Return a fully-qualified scanConfig resource name string.
+   *
+   * @param {string} project
+   * @param {string} scan_config
+   * @returns {string} Resource name string.
+   */
+  scanConfigPath(project: string, scanConfig: string) {
+    return this._pathTemplates.scanConfigPathTemplate.render({
+      project,
+      scan_config: scanConfig,
+    });
+  }
+
+  /**
+   * Parse the project from ScanConfig resource.
+   *
+   * @param {string} scanConfigName
+   *   A fully-qualified path representing ScanConfig resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromScanConfigName(scanConfigName: string) {
+    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
+      .project;
+  }
+
+  /**
+   * Parse the scan_config from ScanConfig resource.
+   *
+   * @param {string} scanConfigName
+   *   A fully-qualified path representing ScanConfig resource.
+   * @returns {string} A string representing the scan_config.
+   */
+  matchScanConfigFromScanConfigName(scanConfigName: string) {
+    return this._pathTemplates.scanConfigPathTemplate.match(scanConfigName)
+      .scan_config;
   }
 
   /**
