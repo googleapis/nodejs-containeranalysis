@@ -19,6 +19,7 @@ import synthtool.gcp as gcp
 import subprocess
 import logging
 import os
+import json
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -100,6 +101,16 @@ r"""  matchNoteFromNoteName(noteName: string) {
 to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client.ts','src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic-grafeas_v1_beta1-v1beta1.ts', 'test/gapic-grafeas-v1.ts', 'test/gapic-grafeas-v1beta1.ts']
 for filePath in to_remove:
     os.unlink(filePath)
+# remove unneeded protos in proto_list.json
+proto_lists=['src/v1/container_analysis_proto_list.json', 'src/v1beta1/container_analysis_v1_beta1_proto_list.json', 'src/v1beta1/grafeas_v1_v1beta1_proto_list.json']
+for proto_list in proto_lists:
+  with open(proto_list, 'r') as json_file:
+    proto_files=json.load(json_file)
+    for file_name in proto_files:
+      if 'google/api' in file_name:
+        del proto_files[file_name]
+
+with open('data.json', 'r') as f:
 subprocess.run(['npm', 'install'])
 subprocess.run(['npm', 'run', 'fix'])
 subprocess.run(['npx', 'compileProtos', 'src'])
