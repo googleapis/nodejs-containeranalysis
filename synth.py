@@ -107,16 +107,9 @@ remove_proto_keywords=['/google/api', '/google/protobuf', 'google/rpc']
 for file in proto_lists:
   with open(file, 'r+') as f:
     items=json.load(f)
-    to_remove_list=[]
-    for i in range(len(items)):
-      item=items[i]
-      for keyword in remove_proto_keywords:
-        if keyword in item:
-          to_remove_list.append(item)
-    for item in to_remove_list:
-      items.remove(item)
-    new_file=json.dumps(items, indent=2)
-  with open(file, 'w') as f:
+    content =[item for item in items if all([(x not in item) for x in remove_proto_keywords])]
+    new_file=json.dumps(content, indent=2)
+  with open(file, 'w') as f:  
     f.write(new_file)
 
 subprocess.run(['npm', 'install'])
