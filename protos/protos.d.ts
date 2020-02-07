@@ -15906,234 +15906,765 @@ export namespace grafeas {
 /** Namespace google. */
 export namespace google {
 
-    /** Namespace api. */
-    namespace api {
+    /** Namespace devtools. */
+    namespace devtools {
 
-        /** Properties of a ResourceDescriptor. */
-        interface IResourceDescriptor {
+        /** Namespace containeranalysis. */
+        namespace containeranalysis {
 
-            /** ResourceDescriptor type */
-            type?: (string|null);
+            /** Namespace v1. */
+            namespace v1 {
 
-            /** ResourceDescriptor pattern */
-            pattern?: (string[]|null);
+                /** Represents a ContainerAnalysis */
+                class ContainerAnalysis extends $protobuf.rpc.Service {
 
-            /** ResourceDescriptor nameField */
-            nameField?: (string|null);
+                    /**
+                     * Constructs a new ContainerAnalysis service.
+                     * @param rpcImpl RPC implementation
+                     * @param [requestDelimited=false] Whether requests are length-delimited
+                     * @param [responseDelimited=false] Whether responses are length-delimited
+                     */
+                    constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
 
-            /** ResourceDescriptor history */
-            history?: (google.api.ResourceDescriptor.History|keyof typeof google.api.ResourceDescriptor.History|null);
+                    /**
+                     * Creates new ContainerAnalysis service using the specified rpc implementation.
+                     * @param rpcImpl RPC implementation
+                     * @param [requestDelimited=false] Whether requests are length-delimited
+                     * @param [responseDelimited=false] Whether responses are length-delimited
+                     * @returns RPC service. Useful where requests and/or responses are streamed.
+                     */
+                    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ContainerAnalysis;
 
-            /** ResourceDescriptor plural */
-            plural?: (string|null);
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.SetIamPolicyCallback): void;
 
-            /** ResourceDescriptor singular */
-            singular?: (string|null);
-        }
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
 
-        /** Represents a ResourceDescriptor. */
-        class ResourceDescriptor implements IResourceDescriptor {
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.GetIamPolicyCallback): void;
 
-            /**
-             * Constructs a new ResourceDescriptor.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.api.IResourceDescriptor);
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
 
-            /** ResourceDescriptor type. */
-            public type: string;
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.TestIamPermissionsCallback): void;
 
-            /** ResourceDescriptor pattern. */
-            public pattern: string[];
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
+                }
 
-            /** ResourceDescriptor nameField. */
-            public nameField: string;
+                namespace ContainerAnalysis {
 
-            /** ResourceDescriptor history. */
-            public history: (google.api.ResourceDescriptor.History|keyof typeof google.api.ResourceDescriptor.History);
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#setIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
-            /** ResourceDescriptor plural. */
-            public plural: string;
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#getIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
-            /** ResourceDescriptor singular. */
-            public singular: string;
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#testIamPermissions}.
+                     * @param error Error, if any
+                     * @param [response] TestIamPermissionsResponse
+                     */
+                    type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
+                }
+            }
 
-            /**
-             * Creates a new ResourceDescriptor instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ResourceDescriptor instance
-             */
-            public static create(properties?: google.api.IResourceDescriptor): google.api.ResourceDescriptor;
+            /** Namespace v1beta1. */
+            namespace v1beta1 {
 
-            /**
-             * Encodes the specified ResourceDescriptor message. Does not implicitly {@link google.api.ResourceDescriptor.verify|verify} messages.
-             * @param message ResourceDescriptor message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.api.IResourceDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+                /** Represents a ContainerAnalysisV1Beta1 */
+                class ContainerAnalysisV1Beta1 extends $protobuf.rpc.Service {
 
-            /**
-             * Encodes the specified ResourceDescriptor message, length delimited. Does not implicitly {@link google.api.ResourceDescriptor.verify|verify} messages.
-             * @param message ResourceDescriptor message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.api.IResourceDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+                    /**
+                     * Constructs a new ContainerAnalysisV1Beta1 service.
+                     * @param rpcImpl RPC implementation
+                     * @param [requestDelimited=false] Whether requests are length-delimited
+                     * @param [responseDelimited=false] Whether responses are length-delimited
+                     */
+                    constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
 
-            /**
-             * Decodes a ResourceDescriptor message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ResourceDescriptor
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.api.ResourceDescriptor;
+                    /**
+                     * Creates new ContainerAnalysisV1Beta1 service using the specified rpc implementation.
+                     * @param rpcImpl RPC implementation
+                     * @param [requestDelimited=false] Whether requests are length-delimited
+                     * @param [responseDelimited=false] Whether responses are length-delimited
+                     * @returns RPC service. Useful where requests and/or responses are streamed.
+                     */
+                    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ContainerAnalysisV1Beta1;
 
-            /**
-             * Decodes a ResourceDescriptor message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ResourceDescriptor
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.api.ResourceDescriptor;
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.SetIamPolicyCallback): void;
 
-            /**
-             * Verifies a ResourceDescriptor message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
+                    /**
+                     * Calls SetIamPolicy.
+                     * @param request SetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
 
-            /**
-             * Creates a ResourceDescriptor message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ResourceDescriptor
-             */
-            public static fromObject(object: { [k: string]: any }): google.api.ResourceDescriptor;
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and Policy
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.GetIamPolicyCallback): void;
 
-            /**
-             * Creates a plain object from a ResourceDescriptor message. Also converts values to other types if specified.
-             * @param message ResourceDescriptor
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.api.ResourceDescriptor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    /**
+                     * Calls GetIamPolicy.
+                     * @param request GetIamPolicyRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
 
-            /**
-             * Converts this ResourceDescriptor to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.TestIamPermissionsCallback): void;
 
-        namespace ResourceDescriptor {
+                    /**
+                     * Calls TestIamPermissions.
+                     * @param request TestIamPermissionsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
 
-            /** History enum. */
-            enum History {
-                HISTORY_UNSPECIFIED = 0,
-                ORIGINALLY_SINGLE_PATTERN = 1,
-                FUTURE_MULTI_PATTERN = 2
+                    /**
+                     * Calls GetScanConfig.
+                     * @param request GetScanConfigRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and ScanConfig
+                     */
+                    public getScanConfig(request: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.GetScanConfigCallback): void;
+
+                    /**
+                     * Calls GetScanConfig.
+                     * @param request GetScanConfigRequest message or plain object
+                     * @returns Promise
+                     */
+                    public getScanConfig(request: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest): Promise<google.devtools.containeranalysis.v1beta1.ScanConfig>;
+
+                    /**
+                     * Calls ListScanConfigs.
+                     * @param request ListScanConfigsRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and ListScanConfigsResponse
+                     */
+                    public listScanConfigs(request: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.ListScanConfigsCallback): void;
+
+                    /**
+                     * Calls ListScanConfigs.
+                     * @param request ListScanConfigsRequest message or plain object
+                     * @returns Promise
+                     */
+                    public listScanConfigs(request: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest): Promise<google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse>;
+
+                    /**
+                     * Calls UpdateScanConfig.
+                     * @param request UpdateScanConfigRequest message or plain object
+                     * @param callback Node-style callback called with the error, if any, and ScanConfig
+                     */
+                    public updateScanConfig(request: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.UpdateScanConfigCallback): void;
+
+                    /**
+                     * Calls UpdateScanConfig.
+                     * @param request UpdateScanConfigRequest message or plain object
+                     * @returns Promise
+                     */
+                    public updateScanConfig(request: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest): Promise<google.devtools.containeranalysis.v1beta1.ScanConfig>;
+                }
+
+                namespace ContainerAnalysisV1Beta1 {
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#setIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#getIamPolicy}.
+                     * @param error Error, if any
+                     * @param [response] Policy
+                     */
+                    type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#testIamPermissions}.
+                     * @param error Error, if any
+                     * @param [response] TestIamPermissionsResponse
+                     */
+                    type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#getScanConfig}.
+                     * @param error Error, if any
+                     * @param [response] ScanConfig
+                     */
+                    type GetScanConfigCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ScanConfig) => void;
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#listScanConfigs}.
+                     * @param error Error, if any
+                     * @param [response] ListScanConfigsResponse
+                     */
+                    type ListScanConfigsCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse) => void;
+
+                    /**
+                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#updateScanConfig}.
+                     * @param error Error, if any
+                     * @param [response] ScanConfig
+                     */
+                    type UpdateScanConfigCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ScanConfig) => void;
+                }
+
+                /** Properties of a ScanConfig. */
+                interface IScanConfig {
+
+                    /** ScanConfig name */
+                    name?: (string|null);
+
+                    /** ScanConfig description */
+                    description?: (string|null);
+
+                    /** ScanConfig enabled */
+                    enabled?: (boolean|null);
+
+                    /** ScanConfig createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ScanConfig updateTime */
+                    updateTime?: (google.protobuf.ITimestamp|null);
+                }
+
+                /** Represents a ScanConfig. */
+                class ScanConfig implements IScanConfig {
+
+                    /**
+                     * Constructs a new ScanConfig.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IScanConfig);
+
+                    /** ScanConfig name. */
+                    public name: string;
+
+                    /** ScanConfig description. */
+                    public description: string;
+
+                    /** ScanConfig enabled. */
+                    public enabled: boolean;
+
+                    /** ScanConfig createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ScanConfig updateTime. */
+                    public updateTime?: (google.protobuf.ITimestamp|null);
+
+                    /**
+                     * Creates a new ScanConfig instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns ScanConfig instance
+                     */
+                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IScanConfig): google.devtools.containeranalysis.v1beta1.ScanConfig;
+
+                    /**
+                     * Encodes the specified ScanConfig message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ScanConfig.verify|verify} messages.
+                     * @param message ScanConfig message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.devtools.containeranalysis.v1beta1.IScanConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified ScanConfig message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ScanConfig.verify|verify} messages.
+                     * @param message ScanConfig message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IScanConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a ScanConfig message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns ScanConfig
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ScanConfig;
+
+                    /**
+                     * Decodes a ScanConfig message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns ScanConfig
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ScanConfig;
+
+                    /**
+                     * Verifies a ScanConfig message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a ScanConfig message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ScanConfig
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ScanConfig;
+
+                    /**
+                     * Creates a plain object from a ScanConfig message. Also converts values to other types if specified.
+                     * @param message ScanConfig
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ScanConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ScanConfig to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a GetScanConfigRequest. */
+                interface IGetScanConfigRequest {
+
+                    /** GetScanConfigRequest name */
+                    name?: (string|null);
+                }
+
+                /** Represents a GetScanConfigRequest. */
+                class GetScanConfigRequest implements IGetScanConfigRequest {
+
+                    /**
+                     * Constructs a new GetScanConfigRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest);
+
+                    /** GetScanConfigRequest name. */
+                    public name: string;
+
+                    /**
+                     * Creates a new GetScanConfigRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns GetScanConfigRequest instance
+                     */
+                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
+
+                    /**
+                     * Encodes the specified GetScanConfigRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.GetScanConfigRequest.verify|verify} messages.
+                     * @param message GetScanConfigRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified GetScanConfigRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.GetScanConfigRequest.verify|verify} messages.
+                     * @param message GetScanConfigRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a GetScanConfigRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns GetScanConfigRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
+
+                    /**
+                     * Decodes a GetScanConfigRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns GetScanConfigRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
+
+                    /**
+                     * Verifies a GetScanConfigRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a GetScanConfigRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns GetScanConfigRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
+
+                    /**
+                     * Creates a plain object from a GetScanConfigRequest message. Also converts values to other types if specified.
+                     * @param message GetScanConfigRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.devtools.containeranalysis.v1beta1.GetScanConfigRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this GetScanConfigRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a ListScanConfigsRequest. */
+                interface IListScanConfigsRequest {
+
+                    /** ListScanConfigsRequest parent */
+                    parent?: (string|null);
+
+                    /** ListScanConfigsRequest filter */
+                    filter?: (string|null);
+
+                    /** ListScanConfigsRequest pageSize */
+                    pageSize?: (number|null);
+
+                    /** ListScanConfigsRequest pageToken */
+                    pageToken?: (string|null);
+                }
+
+                /** Represents a ListScanConfigsRequest. */
+                class ListScanConfigsRequest implements IListScanConfigsRequest {
+
+                    /**
+                     * Constructs a new ListScanConfigsRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest);
+
+                    /** ListScanConfigsRequest parent. */
+                    public parent: string;
+
+                    /** ListScanConfigsRequest filter. */
+                    public filter: string;
+
+                    /** ListScanConfigsRequest pageSize. */
+                    public pageSize: number;
+
+                    /** ListScanConfigsRequest pageToken. */
+                    public pageToken: string;
+
+                    /**
+                     * Creates a new ListScanConfigsRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns ListScanConfigsRequest instance
+                     */
+                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
+
+                    /**
+                     * Encodes the specified ListScanConfigsRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest.verify|verify} messages.
+                     * @param message ListScanConfigsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified ListScanConfigsRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest.verify|verify} messages.
+                     * @param message ListScanConfigsRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a ListScanConfigsRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns ListScanConfigsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
+
+                    /**
+                     * Decodes a ListScanConfigsRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns ListScanConfigsRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
+
+                    /**
+                     * Verifies a ListScanConfigsRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a ListScanConfigsRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ListScanConfigsRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
+
+                    /**
+                     * Creates a plain object from a ListScanConfigsRequest message. Also converts values to other types if specified.
+                     * @param message ListScanConfigsRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ListScanConfigsRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a ListScanConfigsResponse. */
+                interface IListScanConfigsResponse {
+
+                    /** ListScanConfigsResponse scanConfigs */
+                    scanConfigs?: (google.devtools.containeranalysis.v1beta1.IScanConfig[]|null);
+
+                    /** ListScanConfigsResponse nextPageToken */
+                    nextPageToken?: (string|null);
+                }
+
+                /** Represents a ListScanConfigsResponse. */
+                class ListScanConfigsResponse implements IListScanConfigsResponse {
+
+                    /**
+                     * Constructs a new ListScanConfigsResponse.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse);
+
+                    /** ListScanConfigsResponse scanConfigs. */
+                    public scanConfigs: google.devtools.containeranalysis.v1beta1.IScanConfig[];
+
+                    /** ListScanConfigsResponse nextPageToken. */
+                    public nextPageToken: string;
+
+                    /**
+                     * Creates a new ListScanConfigsResponse instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns ListScanConfigsResponse instance
+                     */
+                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
+
+                    /**
+                     * Encodes the specified ListScanConfigsResponse message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse.verify|verify} messages.
+                     * @param message ListScanConfigsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified ListScanConfigsResponse message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse.verify|verify} messages.
+                     * @param message ListScanConfigsResponse message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a ListScanConfigsResponse message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns ListScanConfigsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
+
+                    /**
+                     * Decodes a ListScanConfigsResponse message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns ListScanConfigsResponse
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
+
+                    /**
+                     * Verifies a ListScanConfigsResponse message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a ListScanConfigsResponse message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ListScanConfigsResponse
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
+
+                    /**
+                     * Creates a plain object from a ListScanConfigsResponse message. Also converts values to other types if specified.
+                     * @param message ListScanConfigsResponse
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ListScanConfigsResponse to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of an UpdateScanConfigRequest. */
+                interface IUpdateScanConfigRequest {
+
+                    /** UpdateScanConfigRequest name */
+                    name?: (string|null);
+
+                    /** UpdateScanConfigRequest scanConfig */
+                    scanConfig?: (google.devtools.containeranalysis.v1beta1.IScanConfig|null);
+                }
+
+                /** Represents an UpdateScanConfigRequest. */
+                class UpdateScanConfigRequest implements IUpdateScanConfigRequest {
+
+                    /**
+                     * Constructs a new UpdateScanConfigRequest.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest);
+
+                    /** UpdateScanConfigRequest name. */
+                    public name: string;
+
+                    /** UpdateScanConfigRequest scanConfig. */
+                    public scanConfig?: (google.devtools.containeranalysis.v1beta1.IScanConfig|null);
+
+                    /**
+                     * Creates a new UpdateScanConfigRequest instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns UpdateScanConfigRequest instance
+                     */
+                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
+
+                    /**
+                     * Encodes the specified UpdateScanConfigRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest.verify|verify} messages.
+                     * @param message UpdateScanConfigRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified UpdateScanConfigRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest.verify|verify} messages.
+                     * @param message UpdateScanConfigRequest message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes an UpdateScanConfigRequest message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns UpdateScanConfigRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
+
+                    /**
+                     * Decodes an UpdateScanConfigRequest message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns UpdateScanConfigRequest
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
+
+                    /**
+                     * Verifies an UpdateScanConfigRequest message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates an UpdateScanConfigRequest message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns UpdateScanConfigRequest
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
+
+                    /**
+                     * Creates a plain object from an UpdateScanConfigRequest message. Also converts values to other types if specified.
+                     * @param message UpdateScanConfigRequest
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this UpdateScanConfigRequest to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
             }
         }
+    }
 
-        /** Properties of a ResourceReference. */
-        interface IResourceReference {
-
-            /** ResourceReference type */
-            type?: (string|null);
-
-            /** ResourceReference childType */
-            childType?: (string|null);
-        }
-
-        /** Represents a ResourceReference. */
-        class ResourceReference implements IResourceReference {
-
-            /**
-             * Constructs a new ResourceReference.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.api.IResourceReference);
-
-            /** ResourceReference type. */
-            public type: string;
-
-            /** ResourceReference childType. */
-            public childType: string;
-
-            /**
-             * Creates a new ResourceReference instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns ResourceReference instance
-             */
-            public static create(properties?: google.api.IResourceReference): google.api.ResourceReference;
-
-            /**
-             * Encodes the specified ResourceReference message. Does not implicitly {@link google.api.ResourceReference.verify|verify} messages.
-             * @param message ResourceReference message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.api.IResourceReference, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified ResourceReference message, length delimited. Does not implicitly {@link google.api.ResourceReference.verify|verify} messages.
-             * @param message ResourceReference message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.api.IResourceReference, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a ResourceReference message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns ResourceReference
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.api.ResourceReference;
-
-            /**
-             * Decodes a ResourceReference message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns ResourceReference
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.api.ResourceReference;
-
-            /**
-             * Verifies a ResourceReference message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a ResourceReference message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns ResourceReference
-             */
-            public static fromObject(object: { [k: string]: any }): google.api.ResourceReference;
-
-            /**
-             * Creates a plain object from a ResourceReference message. Also converts values to other types if specified.
-             * @param message ResourceReference
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.api.ResourceReference, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this ResourceReference to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
+    /** Namespace api. */
+    namespace api {
 
         /** Properties of a Http. */
         interface IHttp {
@@ -16482,6 +17013,232 @@ export namespace google {
             OUTPUT_ONLY = 3,
             INPUT_ONLY = 4,
             IMMUTABLE = 5
+        }
+
+        /** Properties of a ResourceDescriptor. */
+        interface IResourceDescriptor {
+
+            /** ResourceDescriptor type */
+            type?: (string|null);
+
+            /** ResourceDescriptor pattern */
+            pattern?: (string[]|null);
+
+            /** ResourceDescriptor nameField */
+            nameField?: (string|null);
+
+            /** ResourceDescriptor history */
+            history?: (google.api.ResourceDescriptor.History|keyof typeof google.api.ResourceDescriptor.History|null);
+
+            /** ResourceDescriptor plural */
+            plural?: (string|null);
+
+            /** ResourceDescriptor singular */
+            singular?: (string|null);
+        }
+
+        /** Represents a ResourceDescriptor. */
+        class ResourceDescriptor implements IResourceDescriptor {
+
+            /**
+             * Constructs a new ResourceDescriptor.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.api.IResourceDescriptor);
+
+            /** ResourceDescriptor type. */
+            public type: string;
+
+            /** ResourceDescriptor pattern. */
+            public pattern: string[];
+
+            /** ResourceDescriptor nameField. */
+            public nameField: string;
+
+            /** ResourceDescriptor history. */
+            public history: (google.api.ResourceDescriptor.History|keyof typeof google.api.ResourceDescriptor.History);
+
+            /** ResourceDescriptor plural. */
+            public plural: string;
+
+            /** ResourceDescriptor singular. */
+            public singular: string;
+
+            /**
+             * Creates a new ResourceDescriptor instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ResourceDescriptor instance
+             */
+            public static create(properties?: google.api.IResourceDescriptor): google.api.ResourceDescriptor;
+
+            /**
+             * Encodes the specified ResourceDescriptor message. Does not implicitly {@link google.api.ResourceDescriptor.verify|verify} messages.
+             * @param message ResourceDescriptor message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.api.IResourceDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ResourceDescriptor message, length delimited. Does not implicitly {@link google.api.ResourceDescriptor.verify|verify} messages.
+             * @param message ResourceDescriptor message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.api.IResourceDescriptor, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ResourceDescriptor message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ResourceDescriptor
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.api.ResourceDescriptor;
+
+            /**
+             * Decodes a ResourceDescriptor message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ResourceDescriptor
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.api.ResourceDescriptor;
+
+            /**
+             * Verifies a ResourceDescriptor message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ResourceDescriptor message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ResourceDescriptor
+             */
+            public static fromObject(object: { [k: string]: any }): google.api.ResourceDescriptor;
+
+            /**
+             * Creates a plain object from a ResourceDescriptor message. Also converts values to other types if specified.
+             * @param message ResourceDescriptor
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.api.ResourceDescriptor, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ResourceDescriptor to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        namespace ResourceDescriptor {
+
+            /** History enum. */
+            enum History {
+                HISTORY_UNSPECIFIED = 0,
+                ORIGINALLY_SINGLE_PATTERN = 1,
+                FUTURE_MULTI_PATTERN = 2
+            }
+        }
+
+        /** Properties of a ResourceReference. */
+        interface IResourceReference {
+
+            /** ResourceReference type */
+            type?: (string|null);
+
+            /** ResourceReference childType */
+            childType?: (string|null);
+        }
+
+        /** Represents a ResourceReference. */
+        class ResourceReference implements IResourceReference {
+
+            /**
+             * Constructs a new ResourceReference.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: google.api.IResourceReference);
+
+            /** ResourceReference type. */
+            public type: string;
+
+            /** ResourceReference childType. */
+            public childType: string;
+
+            /**
+             * Creates a new ResourceReference instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ResourceReference instance
+             */
+            public static create(properties?: google.api.IResourceReference): google.api.ResourceReference;
+
+            /**
+             * Encodes the specified ResourceReference message. Does not implicitly {@link google.api.ResourceReference.verify|verify} messages.
+             * @param message ResourceReference message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: google.api.IResourceReference, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ResourceReference message, length delimited. Does not implicitly {@link google.api.ResourceReference.verify|verify} messages.
+             * @param message ResourceReference message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: google.api.IResourceReference, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ResourceReference message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ResourceReference
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.api.ResourceReference;
+
+            /**
+             * Decodes a ResourceReference message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ResourceReference
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.api.ResourceReference;
+
+            /**
+             * Verifies a ResourceReference message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ResourceReference message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ResourceReference
+             */
+            public static fromObject(object: { [k: string]: any }): google.api.ResourceReference;
+
+            /**
+             * Creates a plain object from a ResourceReference message. Also converts values to other types if specified.
+             * @param message ResourceReference
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: google.api.ResourceReference, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ResourceReference to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
         }
     }
 
@@ -18342,11 +19099,11 @@ export namespace google {
             /** FieldOptions uninterpretedOption */
             uninterpretedOption?: (google.protobuf.IUninterpretedOption[]|null);
 
-            /** FieldOptions .google.api.resourceReference */
-            ".google.api.resourceReference"?: (google.api.IResourceReference|null);
-
             /** FieldOptions .google.api.fieldBehavior */
             ".google.api.fieldBehavior"?: (google.api.FieldBehavior[]|null);
+
+            /** FieldOptions .google.api.resourceReference */
+            ".google.api.resourceReference"?: (google.api.IResourceReference|null);
         }
 
         /** Represents a FieldOptions. */
@@ -19972,763 +20729,6 @@ export namespace google {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
-        }
-    }
-
-    /** Namespace devtools. */
-    namespace devtools {
-
-        /** Namespace containeranalysis. */
-        namespace containeranalysis {
-
-            /** Namespace v1. */
-            namespace v1 {
-
-                /** Represents a ContainerAnalysis */
-                class ContainerAnalysis extends $protobuf.rpc.Service {
-
-                    /**
-                     * Constructs a new ContainerAnalysis service.
-                     * @param rpcImpl RPC implementation
-                     * @param [requestDelimited=false] Whether requests are length-delimited
-                     * @param [responseDelimited=false] Whether responses are length-delimited
-                     */
-                    constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
-
-                    /**
-                     * Creates new ContainerAnalysis service using the specified rpc implementation.
-                     * @param rpcImpl RPC implementation
-                     * @param [requestDelimited=false] Whether requests are length-delimited
-                     * @param [responseDelimited=false] Whether responses are length-delimited
-                     * @returns RPC service. Useful where requests and/or responses are streamed.
-                     */
-                    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ContainerAnalysis;
-
-                    /**
-                     * Calls SetIamPolicy.
-                     * @param request SetIamPolicyRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and Policy
-                     */
-                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.SetIamPolicyCallback): void;
-
-                    /**
-                     * Calls SetIamPolicy.
-                     * @param request SetIamPolicyRequest message or plain object
-                     * @returns Promise
-                     */
-                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                    /**
-                     * Calls GetIamPolicy.
-                     * @param request GetIamPolicyRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and Policy
-                     */
-                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.GetIamPolicyCallback): void;
-
-                    /**
-                     * Calls GetIamPolicy.
-                     * @param request GetIamPolicyRequest message or plain object
-                     * @returns Promise
-                     */
-                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                    /**
-                     * Calls TestIamPermissions.
-                     * @param request TestIamPermissionsRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
-                     */
-                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.devtools.containeranalysis.v1.ContainerAnalysis.TestIamPermissionsCallback): void;
-
-                    /**
-                     * Calls TestIamPermissions.
-                     * @param request TestIamPermissionsRequest message or plain object
-                     * @returns Promise
-                     */
-                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
-                }
-
-                namespace ContainerAnalysis {
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#setIamPolicy}.
-                     * @param error Error, if any
-                     * @param [response] Policy
-                     */
-                    type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#getIamPolicy}.
-                     * @param error Error, if any
-                     * @param [response] Policy
-                     */
-                    type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1.ContainerAnalysis#testIamPermissions}.
-                     * @param error Error, if any
-                     * @param [response] TestIamPermissionsResponse
-                     */
-                    type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
-                }
-            }
-
-            /** Namespace v1beta1. */
-            namespace v1beta1 {
-
-                /** Represents a ContainerAnalysisV1Beta1 */
-                class ContainerAnalysisV1Beta1 extends $protobuf.rpc.Service {
-
-                    /**
-                     * Constructs a new ContainerAnalysisV1Beta1 service.
-                     * @param rpcImpl RPC implementation
-                     * @param [requestDelimited=false] Whether requests are length-delimited
-                     * @param [responseDelimited=false] Whether responses are length-delimited
-                     */
-                    constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
-
-                    /**
-                     * Creates new ContainerAnalysisV1Beta1 service using the specified rpc implementation.
-                     * @param rpcImpl RPC implementation
-                     * @param [requestDelimited=false] Whether requests are length-delimited
-                     * @param [responseDelimited=false] Whether responses are length-delimited
-                     * @returns RPC service. Useful where requests and/or responses are streamed.
-                     */
-                    public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): ContainerAnalysisV1Beta1;
-
-                    /**
-                     * Calls SetIamPolicy.
-                     * @param request SetIamPolicyRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and Policy
-                     */
-                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.SetIamPolicyCallback): void;
-
-                    /**
-                     * Calls SetIamPolicy.
-                     * @param request SetIamPolicyRequest message or plain object
-                     * @returns Promise
-                     */
-                    public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                    /**
-                     * Calls GetIamPolicy.
-                     * @param request GetIamPolicyRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and Policy
-                     */
-                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.GetIamPolicyCallback): void;
-
-                    /**
-                     * Calls GetIamPolicy.
-                     * @param request GetIamPolicyRequest message or plain object
-                     * @returns Promise
-                     */
-                    public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                    /**
-                     * Calls TestIamPermissions.
-                     * @param request TestIamPermissionsRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
-                     */
-                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.TestIamPermissionsCallback): void;
-
-                    /**
-                     * Calls TestIamPermissions.
-                     * @param request TestIamPermissionsRequest message or plain object
-                     * @returns Promise
-                     */
-                    public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
-
-                    /**
-                     * Calls GetScanConfig.
-                     * @param request GetScanConfigRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and ScanConfig
-                     */
-                    public getScanConfig(request: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.GetScanConfigCallback): void;
-
-                    /**
-                     * Calls GetScanConfig.
-                     * @param request GetScanConfigRequest message or plain object
-                     * @returns Promise
-                     */
-                    public getScanConfig(request: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest): Promise<google.devtools.containeranalysis.v1beta1.ScanConfig>;
-
-                    /**
-                     * Calls ListScanConfigs.
-                     * @param request ListScanConfigsRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and ListScanConfigsResponse
-                     */
-                    public listScanConfigs(request: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.ListScanConfigsCallback): void;
-
-                    /**
-                     * Calls ListScanConfigs.
-                     * @param request ListScanConfigsRequest message or plain object
-                     * @returns Promise
-                     */
-                    public listScanConfigs(request: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest): Promise<google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse>;
-
-                    /**
-                     * Calls UpdateScanConfig.
-                     * @param request UpdateScanConfigRequest message or plain object
-                     * @param callback Node-style callback called with the error, if any, and ScanConfig
-                     */
-                    public updateScanConfig(request: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, callback: google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1.UpdateScanConfigCallback): void;
-
-                    /**
-                     * Calls UpdateScanConfig.
-                     * @param request UpdateScanConfigRequest message or plain object
-                     * @returns Promise
-                     */
-                    public updateScanConfig(request: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest): Promise<google.devtools.containeranalysis.v1beta1.ScanConfig>;
-                }
-
-                namespace ContainerAnalysisV1Beta1 {
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#setIamPolicy}.
-                     * @param error Error, if any
-                     * @param [response] Policy
-                     */
-                    type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#getIamPolicy}.
-                     * @param error Error, if any
-                     * @param [response] Policy
-                     */
-                    type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#testIamPermissions}.
-                     * @param error Error, if any
-                     * @param [response] TestIamPermissionsResponse
-                     */
-                    type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#getScanConfig}.
-                     * @param error Error, if any
-                     * @param [response] ScanConfig
-                     */
-                    type GetScanConfigCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ScanConfig) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#listScanConfigs}.
-                     * @param error Error, if any
-                     * @param [response] ListScanConfigsResponse
-                     */
-                    type ListScanConfigsCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse) => void;
-
-                    /**
-                     * Callback as used by {@link google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1#updateScanConfig}.
-                     * @param error Error, if any
-                     * @param [response] ScanConfig
-                     */
-                    type UpdateScanConfigCallback = (error: (Error|null), response?: google.devtools.containeranalysis.v1beta1.ScanConfig) => void;
-                }
-
-                /** Properties of a ScanConfig. */
-                interface IScanConfig {
-
-                    /** ScanConfig name */
-                    name?: (string|null);
-
-                    /** ScanConfig description */
-                    description?: (string|null);
-
-                    /** ScanConfig enabled */
-                    enabled?: (boolean|null);
-
-                    /** ScanConfig createTime */
-                    createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ScanConfig updateTime */
-                    updateTime?: (google.protobuf.ITimestamp|null);
-                }
-
-                /** Represents a ScanConfig. */
-                class ScanConfig implements IScanConfig {
-
-                    /**
-                     * Constructs a new ScanConfig.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IScanConfig);
-
-                    /** ScanConfig name. */
-                    public name: string;
-
-                    /** ScanConfig description. */
-                    public description: string;
-
-                    /** ScanConfig enabled. */
-                    public enabled: boolean;
-
-                    /** ScanConfig createTime. */
-                    public createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ScanConfig updateTime. */
-                    public updateTime?: (google.protobuf.ITimestamp|null);
-
-                    /**
-                     * Creates a new ScanConfig instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns ScanConfig instance
-                     */
-                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IScanConfig): google.devtools.containeranalysis.v1beta1.ScanConfig;
-
-                    /**
-                     * Encodes the specified ScanConfig message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ScanConfig.verify|verify} messages.
-                     * @param message ScanConfig message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.devtools.containeranalysis.v1beta1.IScanConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified ScanConfig message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ScanConfig.verify|verify} messages.
-                     * @param message ScanConfig message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IScanConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a ScanConfig message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns ScanConfig
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ScanConfig;
-
-                    /**
-                     * Decodes a ScanConfig message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns ScanConfig
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ScanConfig;
-
-                    /**
-                     * Verifies a ScanConfig message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a ScanConfig message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns ScanConfig
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ScanConfig;
-
-                    /**
-                     * Creates a plain object from a ScanConfig message. Also converts values to other types if specified.
-                     * @param message ScanConfig
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ScanConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this ScanConfig to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of a GetScanConfigRequest. */
-                interface IGetScanConfigRequest {
-
-                    /** GetScanConfigRequest name */
-                    name?: (string|null);
-                }
-
-                /** Represents a GetScanConfigRequest. */
-                class GetScanConfigRequest implements IGetScanConfigRequest {
-
-                    /**
-                     * Constructs a new GetScanConfigRequest.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest);
-
-                    /** GetScanConfigRequest name. */
-                    public name: string;
-
-                    /**
-                     * Creates a new GetScanConfigRequest instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns GetScanConfigRequest instance
-                     */
-                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
-
-                    /**
-                     * Encodes the specified GetScanConfigRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.GetScanConfigRequest.verify|verify} messages.
-                     * @param message GetScanConfigRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified GetScanConfigRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.GetScanConfigRequest.verify|verify} messages.
-                     * @param message GetScanConfigRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a GetScanConfigRequest message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns GetScanConfigRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
-
-                    /**
-                     * Decodes a GetScanConfigRequest message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns GetScanConfigRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
-
-                    /**
-                     * Verifies a GetScanConfigRequest message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a GetScanConfigRequest message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns GetScanConfigRequest
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.GetScanConfigRequest;
-
-                    /**
-                     * Creates a plain object from a GetScanConfigRequest message. Also converts values to other types if specified.
-                     * @param message GetScanConfigRequest
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.devtools.containeranalysis.v1beta1.GetScanConfigRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this GetScanConfigRequest to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of a ListScanConfigsRequest. */
-                interface IListScanConfigsRequest {
-
-                    /** ListScanConfigsRequest parent */
-                    parent?: (string|null);
-
-                    /** ListScanConfigsRequest filter */
-                    filter?: (string|null);
-
-                    /** ListScanConfigsRequest pageSize */
-                    pageSize?: (number|null);
-
-                    /** ListScanConfigsRequest pageToken */
-                    pageToken?: (string|null);
-                }
-
-                /** Represents a ListScanConfigsRequest. */
-                class ListScanConfigsRequest implements IListScanConfigsRequest {
-
-                    /**
-                     * Constructs a new ListScanConfigsRequest.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest);
-
-                    /** ListScanConfigsRequest parent. */
-                    public parent: string;
-
-                    /** ListScanConfigsRequest filter. */
-                    public filter: string;
-
-                    /** ListScanConfigsRequest pageSize. */
-                    public pageSize: number;
-
-                    /** ListScanConfigsRequest pageToken. */
-                    public pageToken: string;
-
-                    /**
-                     * Creates a new ListScanConfigsRequest instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns ListScanConfigsRequest instance
-                     */
-                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
-
-                    /**
-                     * Encodes the specified ListScanConfigsRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest.verify|verify} messages.
-                     * @param message ListScanConfigsRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified ListScanConfigsRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest.verify|verify} messages.
-                     * @param message ListScanConfigsRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a ListScanConfigsRequest message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns ListScanConfigsRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
-
-                    /**
-                     * Decodes a ListScanConfigsRequest message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns ListScanConfigsRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
-
-                    /**
-                     * Verifies a ListScanConfigsRequest message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a ListScanConfigsRequest message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns ListScanConfigsRequest
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest;
-
-                    /**
-                     * Creates a plain object from a ListScanConfigsRequest message. Also converts values to other types if specified.
-                     * @param message ListScanConfigsRequest
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ListScanConfigsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this ListScanConfigsRequest to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of a ListScanConfigsResponse. */
-                interface IListScanConfigsResponse {
-
-                    /** ListScanConfigsResponse scanConfigs */
-                    scanConfigs?: (google.devtools.containeranalysis.v1beta1.IScanConfig[]|null);
-
-                    /** ListScanConfigsResponse nextPageToken */
-                    nextPageToken?: (string|null);
-                }
-
-                /** Represents a ListScanConfigsResponse. */
-                class ListScanConfigsResponse implements IListScanConfigsResponse {
-
-                    /**
-                     * Constructs a new ListScanConfigsResponse.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse);
-
-                    /** ListScanConfigsResponse scanConfigs. */
-                    public scanConfigs: google.devtools.containeranalysis.v1beta1.IScanConfig[];
-
-                    /** ListScanConfigsResponse nextPageToken. */
-                    public nextPageToken: string;
-
-                    /**
-                     * Creates a new ListScanConfigsResponse instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns ListScanConfigsResponse instance
-                     */
-                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
-
-                    /**
-                     * Encodes the specified ListScanConfigsResponse message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse.verify|verify} messages.
-                     * @param message ListScanConfigsResponse message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified ListScanConfigsResponse message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse.verify|verify} messages.
-                     * @param message ListScanConfigsResponse message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a ListScanConfigsResponse message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns ListScanConfigsResponse
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
-
-                    /**
-                     * Decodes a ListScanConfigsResponse message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns ListScanConfigsResponse
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
-
-                    /**
-                     * Verifies a ListScanConfigsResponse message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a ListScanConfigsResponse message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns ListScanConfigsResponse
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse;
-
-                    /**
-                     * Creates a plain object from a ListScanConfigsResponse message. Also converts values to other types if specified.
-                     * @param message ListScanConfigsResponse
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.devtools.containeranalysis.v1beta1.ListScanConfigsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this ListScanConfigsResponse to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of an UpdateScanConfigRequest. */
-                interface IUpdateScanConfigRequest {
-
-                    /** UpdateScanConfigRequest name */
-                    name?: (string|null);
-
-                    /** UpdateScanConfigRequest scanConfig */
-                    scanConfig?: (google.devtools.containeranalysis.v1beta1.IScanConfig|null);
-                }
-
-                /** Represents an UpdateScanConfigRequest. */
-                class UpdateScanConfigRequest implements IUpdateScanConfigRequest {
-
-                    /**
-                     * Constructs a new UpdateScanConfigRequest.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest);
-
-                    /** UpdateScanConfigRequest name. */
-                    public name: string;
-
-                    /** UpdateScanConfigRequest scanConfig. */
-                    public scanConfig?: (google.devtools.containeranalysis.v1beta1.IScanConfig|null);
-
-                    /**
-                     * Creates a new UpdateScanConfigRequest instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns UpdateScanConfigRequest instance
-                     */
-                    public static create(properties?: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
-
-                    /**
-                     * Encodes the specified UpdateScanConfigRequest message. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest.verify|verify} messages.
-                     * @param message UpdateScanConfigRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified UpdateScanConfigRequest message, length delimited. Does not implicitly {@link google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest.verify|verify} messages.
-                     * @param message UpdateScanConfigRequest message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes an UpdateScanConfigRequest message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns UpdateScanConfigRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
-
-                    /**
-                     * Decodes an UpdateScanConfigRequest message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns UpdateScanConfigRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
-
-                    /**
-                     * Verifies an UpdateScanConfigRequest message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates an UpdateScanConfigRequest message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns UpdateScanConfigRequest
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest;
-
-                    /**
-                     * Creates a plain object from an UpdateScanConfigRequest message. Also converts values to other types if specified.
-                     * @param message UpdateScanConfigRequest
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.devtools.containeranalysis.v1beta1.UpdateScanConfigRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this UpdateScanConfigRequest to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-            }
         }
     }
 

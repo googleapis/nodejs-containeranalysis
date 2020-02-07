@@ -102,15 +102,23 @@ to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src
 for filePath in to_remove:
     os.unlink(filePath)
 # remove unneeded protos in proto_list.json
-proto_lists=['src/v1/container_analysis_proto_list.json', 'src/v1beta1/container_analysis_v1_beta1_proto_list.json', 'src/v1beta1/grafeas_v1_v1beta1_proto_list.json']
-for proto_list in proto_lists:
-  with open(proto_list, 'r') as json_file:
-    proto_files=json.load(json_file)
-    for file_name in proto_files:
-      if 'google/api' in file_name:
-        del proto_files[file_name]
+proto_lists=['src/v1/container_analysis_proto_list.json', 'src/v1beta1/container_analysis_v1_beta1_proto_list.json', 'src/v1beta1/grafeas_v1_beta1_proto_list.json']
+remove_proto_keywords=['/google/api', '/google/protobuf', 'google/rpc']
+for file in proto_lists:
+  with open(file, 'r+') as f:
+    items=json.load(f)
+    to_remove_list=[]
+    for i in range(len(items)):
+      item=items[i]
+      for keyword in remove_proto_keywords:
+        if keyword in item:
+          to_remove_list.append(item)
+    for item in to_remove_list:
+      items.remove(item)
+    new_file=json.dumps(items, indent=2)
+  with open(file, 'w') as f:
+    f.write(new_file)
 
-with open('data.json', 'r') as f:
 subprocess.run(['npm', 'install'])
 subprocess.run(['npm', 'run', 'fix'])
 subprocess.run(['npx', 'compileProtos', 'src'])

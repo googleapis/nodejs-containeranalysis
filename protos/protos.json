@@ -3507,88 +3507,252 @@
     },
     "google": {
       "nested": {
-        "cloud": {
-          "options": {
-            "(google.api.resource_definition).type": "locations.googleapis.com/Location",
-            "(google.api.resource_definition).pattern": "projects/{project}/locations/{location}"
+        "devtools": {
+          "nested": {
+            "containeranalysis": {
+              "nested": {
+                "v1": {
+                  "options": {
+                    "csharp_namespace": "Google.Cloud.DevTools.ContainerAnalysis.V1",
+                    "go_package": "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1;containeranalysis",
+                    "java_multiple_files": true,
+                    "java_package": "com.google.containeranalysis.v1",
+                    "objc_class_prefix": "GCA",
+                    "ruby_package": "Google::Cloud::ContainerAnalysis::V1"
+                  },
+                  "nested": {
+                    "ContainerAnalysis": {
+                      "options": {
+                        "(google.api.default_host)": "containeranalysis.googleapis.com",
+                        "(google.api.oauth_scopes)": "https://www.googleapis.com/auth/cloud-platform"
+                      },
+                      "methods": {
+                        "SetIamPolicy": {
+                          "requestType": "google.iam.v1.SetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:setIamPolicy",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:setIamPolicy",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource,policy"
+                          }
+                        },
+                        "GetIamPolicy": {
+                          "requestType": "google.iam.v1.GetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:getIamPolicy",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:getIamPolicy",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource"
+                          }
+                        },
+                        "TestIamPermissions": {
+                          "requestType": "google.iam.v1.TestIamPermissionsRequest",
+                          "responseType": "google.iam.v1.TestIamPermissionsResponse",
+                          "options": {
+                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:testIamPermissions",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:testIamPermissions",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource,permissions"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "v1beta1": {
+                  "options": {
+                    "go_package": "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1;containeranalysis",
+                    "java_multiple_files": true,
+                    "java_package": "com.google.containeranalysis.v1beta1",
+                    "objc_class_prefix": "GCA"
+                  },
+                  "nested": {
+                    "ContainerAnalysisV1Beta1": {
+                      "options": {
+                        "(google.api.default_host)": "containeranalysis.googleapis.com",
+                        "(google.api.oauth_scopes)": "https://www.googleapis.com/auth/cloud-platform"
+                      },
+                      "methods": {
+                        "SetIamPolicy": {
+                          "requestType": "google.iam.v1.SetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:setIamPolicy",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:setIamPolicy",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource,policy"
+                          }
+                        },
+                        "GetIamPolicy": {
+                          "requestType": "google.iam.v1.GetIamPolicyRequest",
+                          "responseType": "google.iam.v1.Policy",
+                          "options": {
+                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:getIamPolicy",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:getIamPolicy",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource"
+                          }
+                        },
+                        "TestIamPermissions": {
+                          "requestType": "google.iam.v1.TestIamPermissionsRequest",
+                          "responseType": "google.iam.v1.TestIamPermissionsResponse",
+                          "options": {
+                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:testIamPermissions",
+                            "(google.api.http).body": "*",
+                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:testIamPermissions",
+                            "(google.api.http).additional_bindings.body": "*",
+                            "(google.api.method_signature)": "resource,permissions"
+                          }
+                        },
+                        "GetScanConfig": {
+                          "requestType": "GetScanConfigRequest",
+                          "responseType": "ScanConfig",
+                          "options": {
+                            "(google.api.http).get": "/v1beta1/{name=projects/*/scanConfigs/*}",
+                            "(google.api.method_signature)": "name"
+                          }
+                        },
+                        "ListScanConfigs": {
+                          "requestType": "ListScanConfigsRequest",
+                          "responseType": "ListScanConfigsResponse",
+                          "options": {
+                            "(google.api.http).get": "/v1beta1/{parent=projects/*}/scanConfigs",
+                            "(google.api.method_signature)": "parent,filter"
+                          }
+                        },
+                        "UpdateScanConfig": {
+                          "requestType": "UpdateScanConfigRequest",
+                          "responseType": "ScanConfig",
+                          "options": {
+                            "(google.api.http).put": "/v1beta1/{name=projects/*/scanConfigs/*}",
+                            "(google.api.http).body": "scan_config",
+                            "(google.api.method_signature)": "name,scan_config"
+                          }
+                        }
+                      }
+                    },
+                    "ScanConfig": {
+                      "options": {
+                        "(google.api.resource).type": "containeranalysis.googleapis.com/ScanConfig",
+                        "(google.api.resource).pattern": "projects/{project}/scanConfigs/{scan_config}"
+                      },
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1
+                        },
+                        "description": {
+                          "type": "string",
+                          "id": 2
+                        },
+                        "enabled": {
+                          "type": "bool",
+                          "id": 3
+                        },
+                        "createTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 4
+                        },
+                        "updateTime": {
+                          "type": "google.protobuf.Timestamp",
+                          "id": 5
+                        }
+                      }
+                    },
+                    "GetScanConfigRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "containeranalysis.googleapis.com/ScanConfig"
+                          }
+                        }
+                      }
+                    },
+                    "ListScanConfigsRequest": {
+                      "fields": {
+                        "parent": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "cloudresourcemanager.googleapis.com/Project"
+                          }
+                        },
+                        "filter": {
+                          "type": "string",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "pageSize": {
+                          "type": "int32",
+                          "id": 3
+                        },
+                        "pageToken": {
+                          "type": "string",
+                          "id": 4
+                        }
+                      }
+                    },
+                    "ListScanConfigsResponse": {
+                      "fields": {
+                        "scanConfigs": {
+                          "rule": "repeated",
+                          "type": "ScanConfig",
+                          "id": 1
+                        },
+                        "nextPageToken": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      }
+                    },
+                    "UpdateScanConfigRequest": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED",
+                            "(google.api.resource_reference).type": "containeranalysis.googleapis.com/ScanConfig"
+                          }
+                        },
+                        "scanConfig": {
+                          "type": "ScanConfig",
+                          "id": 2,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "api": {
           "options": {
-            "cc_enable_arenas": true,
             "go_package": "google.golang.org/genproto/googleapis/api/annotations;annotations",
             "java_multiple_files": true,
-            "java_outer_classname": "FieldBehaviorProto",
+            "java_outer_classname": "ResourceProto",
             "java_package": "com.google.api",
-            "objc_class_prefix": "GAPI"
+            "objc_class_prefix": "GAPI",
+            "cc_enable_arenas": true
           },
           "nested": {
-            "resourceReference": {
-              "type": "google.api.ResourceReference",
-              "id": 1055,
-              "extend": "google.protobuf.FieldOptions"
-            },
-            "resourceDefinition": {
-              "rule": "repeated",
-              "type": "google.api.ResourceDescriptor",
-              "id": 1053,
-              "extend": "google.protobuf.FileOptions"
-            },
-            "resource": {
-              "type": "google.api.ResourceDescriptor",
-              "id": 1053,
-              "extend": "google.protobuf.MessageOptions"
-            },
-            "ResourceDescriptor": {
-              "fields": {
-                "type": {
-                  "type": "string",
-                  "id": 1
-                },
-                "pattern": {
-                  "rule": "repeated",
-                  "type": "string",
-                  "id": 2
-                },
-                "nameField": {
-                  "type": "string",
-                  "id": 3
-                },
-                "history": {
-                  "type": "History",
-                  "id": 4
-                },
-                "plural": {
-                  "type": "string",
-                  "id": 5
-                },
-                "singular": {
-                  "type": "string",
-                  "id": 6
-                }
-              },
-              "nested": {
-                "History": {
-                  "values": {
-                    "HISTORY_UNSPECIFIED": 0,
-                    "ORIGINALLY_SINGLE_PATTERN": 1,
-                    "FUTURE_MULTI_PATTERN": 2
-                  }
-                }
-              }
-            },
-            "ResourceReference": {
-              "fields": {
-                "type": {
-                  "type": "string",
-                  "id": 1
-                },
-                "childType": {
-                  "type": "string",
-                  "id": 2
-                }
-              }
-            },
             "http": {
               "type": "HttpRule",
               "id": 72295728,
@@ -3706,6 +3870,72 @@
                 "OUTPUT_ONLY": 3,
                 "INPUT_ONLY": 4,
                 "IMMUTABLE": 5
+              }
+            },
+            "resourceReference": {
+              "type": "google.api.ResourceReference",
+              "id": 1055,
+              "extend": "google.protobuf.FieldOptions"
+            },
+            "resourceDefinition": {
+              "rule": "repeated",
+              "type": "google.api.ResourceDescriptor",
+              "id": 1053,
+              "extend": "google.protobuf.FileOptions"
+            },
+            "resource": {
+              "type": "google.api.ResourceDescriptor",
+              "id": 1053,
+              "extend": "google.protobuf.MessageOptions"
+            },
+            "ResourceDescriptor": {
+              "fields": {
+                "type": {
+                  "type": "string",
+                  "id": 1
+                },
+                "pattern": {
+                  "rule": "repeated",
+                  "type": "string",
+                  "id": 2
+                },
+                "nameField": {
+                  "type": "string",
+                  "id": 3
+                },
+                "history": {
+                  "type": "History",
+                  "id": 4
+                },
+                "plural": {
+                  "type": "string",
+                  "id": 5
+                },
+                "singular": {
+                  "type": "string",
+                  "id": 6
+                }
+              },
+              "nested": {
+                "History": {
+                  "values": {
+                    "HISTORY_UNSPECIFIED": 0,
+                    "ORIGINALLY_SINGLE_PATTERN": 1,
+                    "FUTURE_MULTI_PATTERN": 2
+                  }
+                }
+              }
+            },
+            "ResourceReference": {
+              "fields": {
+                "type": {
+                  "type": "string",
+                  "id": 1
+                },
+                "childType": {
+                  "type": "string",
+                  "id": 2
+                }
               }
             }
           }
@@ -4634,242 +4864,6 @@
                   "rule": "repeated",
                   "type": "string",
                   "id": 1
-                }
-              }
-            }
-          }
-        },
-        "devtools": {
-          "nested": {
-            "containeranalysis": {
-              "nested": {
-                "v1": {
-                  "options": {
-                    "csharp_namespace": "Google.Cloud.DevTools.ContainerAnalysis.V1",
-                    "go_package": "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1;containeranalysis",
-                    "java_multiple_files": true,
-                    "java_package": "com.google.containeranalysis.v1",
-                    "objc_class_prefix": "GCA",
-                    "ruby_package": "Google::Cloud::ContainerAnalysis::V1"
-                  },
-                  "nested": {
-                    "ContainerAnalysis": {
-                      "options": {
-                        "(google.api.default_host)": "containeranalysis.googleapis.com",
-                        "(google.api.oauth_scopes)": "https://www.googleapis.com/auth/cloud-platform"
-                      },
-                      "methods": {
-                        "SetIamPolicy": {
-                          "requestType": "google.iam.v1.SetIamPolicyRequest",
-                          "responseType": "google.iam.v1.Policy",
-                          "options": {
-                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:setIamPolicy",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:setIamPolicy",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource,policy"
-                          }
-                        },
-                        "GetIamPolicy": {
-                          "requestType": "google.iam.v1.GetIamPolicyRequest",
-                          "responseType": "google.iam.v1.Policy",
-                          "options": {
-                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:getIamPolicy",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:getIamPolicy",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource"
-                          }
-                        },
-                        "TestIamPermissions": {
-                          "requestType": "google.iam.v1.TestIamPermissionsRequest",
-                          "responseType": "google.iam.v1.TestIamPermissionsResponse",
-                          "options": {
-                            "(google.api.http).post": "/v1/{resource=projects/*/notes/*}:testIamPermissions",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1/{resource=projects/*/occurrences/*}:testIamPermissions",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource,permissions"
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "v1beta1": {
-                  "options": {
-                    "go_package": "google.golang.org/genproto/googleapis/devtools/containeranalysis/v1beta1;containeranalysis",
-                    "java_multiple_files": true,
-                    "java_package": "com.google.containeranalysis.v1beta1",
-                    "objc_class_prefix": "GCA"
-                  },
-                  "nested": {
-                    "ContainerAnalysisV1Beta1": {
-                      "options": {
-                        "(google.api.default_host)": "containeranalysis.googleapis.com",
-                        "(google.api.oauth_scopes)": "https://www.googleapis.com/auth/cloud-platform"
-                      },
-                      "methods": {
-                        "SetIamPolicy": {
-                          "requestType": "google.iam.v1.SetIamPolicyRequest",
-                          "responseType": "google.iam.v1.Policy",
-                          "options": {
-                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:setIamPolicy",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:setIamPolicy",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource,policy"
-                          }
-                        },
-                        "GetIamPolicy": {
-                          "requestType": "google.iam.v1.GetIamPolicyRequest",
-                          "responseType": "google.iam.v1.Policy",
-                          "options": {
-                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:getIamPolicy",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:getIamPolicy",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource"
-                          }
-                        },
-                        "TestIamPermissions": {
-                          "requestType": "google.iam.v1.TestIamPermissionsRequest",
-                          "responseType": "google.iam.v1.TestIamPermissionsResponse",
-                          "options": {
-                            "(google.api.http).post": "/v1beta1/{resource=projects/*/notes/*}:testIamPermissions",
-                            "(google.api.http).body": "*",
-                            "(google.api.http).additional_bindings.post": "/v1beta1/{resource=projects/*/occurrences/*}:testIamPermissions",
-                            "(google.api.http).additional_bindings.body": "*",
-                            "(google.api.method_signature)": "resource,permissions"
-                          }
-                        },
-                        "GetScanConfig": {
-                          "requestType": "GetScanConfigRequest",
-                          "responseType": "ScanConfig",
-                          "options": {
-                            "(google.api.http).get": "/v1beta1/{name=projects/*/scanConfigs/*}",
-                            "(google.api.method_signature)": "name"
-                          }
-                        },
-                        "ListScanConfigs": {
-                          "requestType": "ListScanConfigsRequest",
-                          "responseType": "ListScanConfigsResponse",
-                          "options": {
-                            "(google.api.http).get": "/v1beta1/{parent=projects/*}/scanConfigs",
-                            "(google.api.method_signature)": "parent,filter"
-                          }
-                        },
-                        "UpdateScanConfig": {
-                          "requestType": "UpdateScanConfigRequest",
-                          "responseType": "ScanConfig",
-                          "options": {
-                            "(google.api.http).put": "/v1beta1/{name=projects/*/scanConfigs/*}",
-                            "(google.api.http).body": "scan_config",
-                            "(google.api.method_signature)": "name,scan_config"
-                          }
-                        }
-                      }
-                    },
-                    "ScanConfig": {
-                      "options": {
-                        "(google.api.resource).type": "containeranalysis.googleapis.com/ScanConfig",
-                        "(google.api.resource).pattern": "projects/{project}/scanConfigs/{scan_config}"
-                      },
-                      "fields": {
-                        "name": {
-                          "type": "string",
-                          "id": 1
-                        },
-                        "description": {
-                          "type": "string",
-                          "id": 2
-                        },
-                        "enabled": {
-                          "type": "bool",
-                          "id": 3
-                        },
-                        "createTime": {
-                          "type": "google.protobuf.Timestamp",
-                          "id": 4
-                        },
-                        "updateTime": {
-                          "type": "google.protobuf.Timestamp",
-                          "id": 5
-                        }
-                      }
-                    },
-                    "GetScanConfigRequest": {
-                      "fields": {
-                        "name": {
-                          "type": "string",
-                          "id": 1,
-                          "options": {
-                            "(google.api.field_behavior)": "REQUIRED",
-                            "(google.api.resource_reference).type": "containeranalysis.googleapis.com/ScanConfig"
-                          }
-                        }
-                      }
-                    },
-                    "ListScanConfigsRequest": {
-                      "fields": {
-                        "parent": {
-                          "type": "string",
-                          "id": 1,
-                          "options": {
-                            "(google.api.field_behavior)": "REQUIRED",
-                            "(google.api.resource_reference).type": "cloudresourcemanager.googleapis.com/Project"
-                          }
-                        },
-                        "filter": {
-                          "type": "string",
-                          "id": 2,
-                          "options": {
-                            "(google.api.field_behavior)": "REQUIRED"
-                          }
-                        },
-                        "pageSize": {
-                          "type": "int32",
-                          "id": 3
-                        },
-                        "pageToken": {
-                          "type": "string",
-                          "id": 4
-                        }
-                      }
-                    },
-                    "ListScanConfigsResponse": {
-                      "fields": {
-                        "scanConfigs": {
-                          "rule": "repeated",
-                          "type": "ScanConfig",
-                          "id": 1
-                        },
-                        "nextPageToken": {
-                          "type": "string",
-                          "id": 2
-                        }
-                      }
-                    },
-                    "UpdateScanConfigRequest": {
-                      "fields": {
-                        "name": {
-                          "type": "string",
-                          "id": 1,
-                          "options": {
-                            "(google.api.field_behavior)": "REQUIRED",
-                            "(google.api.resource_reference).type": "containeranalysis.googleapis.com/ScanConfig"
-                          }
-                        },
-                        "scanConfig": {
-                          "type": "ScanConfig",
-                          "id": 2,
-                          "options": {
-                            "(google.api.field_behavior)": "REQUIRED"
-                          }
-                        }
-                      }
-                    }
-                  }
                 }
               }
             }
