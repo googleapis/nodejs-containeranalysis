@@ -60,7 +60,6 @@ export class ContainerAnalysisClient {
   private _protos: {};
   private _defaults: {[method: string]: gax.CallSettings};
   auth: gax.GoogleAuth;
-  opts: ClientOptions;
   containerAnalysisStub?: Promise<{[name: string]: Function}>;
 
   /**
@@ -250,7 +249,6 @@ export class ContainerAnalysisClient {
     }
 
     return this.containerAnalysisStub;
-    this.opts = opts;
   }
 
   /**
@@ -573,18 +571,6 @@ export class ContainerAnalysisClient {
   matchNoteFromNoteName(noteName: string) {
     return this._pathTemplates.notePathTemplate.match(noteName).note;
   }
-  /**
-   * Returns an instance of a @google-cloud/grafeas client, configured to
-   * connect to Google Cloud's Container Analysis API. For documentation
-   * on this client, see:
-   * <a href="https://googleapis.dev/nodejs/grafeas/latest/index.html">https://googleapis.dev/nodejs/grafeas/latest/index.html</a>
-   *
-   * @returns {GrafeasClient} - An instance of a Grafeas client.
-   *
-   */
-  getGrafeasClient() {
-    return new GrafeasClient(this.opts);
-  }
 
   /**
    * Return a fully-qualified occurrence resource name string.
@@ -638,5 +624,18 @@ export class ContainerAnalysisClient {
       });
     }
     return Promise.resolve();
+  }
+
+  /**
+   * Returns an instance of a @google-cloud/grafeas client, configured to
+   * connect to Google Cloud's Container Analysis API. For documentation
+   * on this client, see:
+   * <a href="https://googleapis.dev/nodejs/grafeas/latest/index.html">https://googleapis.dev/nodejs/grafeas/latest/index.html</a>
+   *
+   * @returns {GrafeasClient} - An instance of a Grafeas client.
+   *
+   */
+  getGrafeasClient() {
+    return new GrafeasClient(this._opts);
   }
 }
