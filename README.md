@@ -55,48 +55,48 @@ npm install @google-cloud/containeranalysis
 ### Using the client library
 
 ```javascript
-  /**
-   * TODO(developer): Uncomment these variables before running the sample
-   */
-  // const projectId = 'your-project-id', // Your GCP Project ID
-  // const noteId = 'my-note-id' // Id of the note
+/**
+ * TODO(developer): Uncomment these variables before running the sample
+ */
+// const projectId = 'your-project-id', // Your GCP Project ID
+// const noteId = 'my-note-id' // Id of the note
 
-  // Import the library and create a client
-  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
-  const client = new ContainerAnalysisClient();
-  // Fetch an instance of a Grafeas client:
-  // see: https://googleapis.dev/nodejs/grafeas/latest
-  const grafeasClient = client.getGrafeasClient();
+// Import the library and create a client
+const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
+const client = new ContainerAnalysisClient();
+// Fetch an instance of a Grafeas client:
+// see: https://googleapis.dev/nodejs/grafeas/latest
+const grafeasClient = client.getGrafeasClient();
 
-  // Construct request
-  // Associate the Note with a metadata type
-  // https://cloud.google.com/container-registry/docs/container-analysis#supported_metadata_types
-  // Here, we use the type "vulnerabiltity"
-  const formattedParent = grafeasClient.projectPath(projectId);
+// Construct request
+// Associate the Note with a metadata type
+// https://cloud.google.com/container-registry/docs/container-analysis#supported_metadata_types
+// Here, we use the type "vulnerabiltity"
+const formattedParent = grafeasClient.projectPath(projectId);
 
-  // Creates and returns a new Note
-  const [note] = await grafeasClient.createNote({
-    parent: formattedParent,
-    noteId: noteId,
-    note: {
-      vulnerability: {
-        details: [
-          {
-            affectedCpeUri: 'foo.uri',
-            affectedPackage: 'foo',
-            minAffectedVersion: {
-              kind: 'MINIMUM',
-            },
-            fixedVersion: {
-              kind: 'MAXIMUM',
-            },
+// Creates and returns a new Note
+const [note] = await grafeasClient.createNote({
+  parent: formattedParent,
+  noteId: noteId,
+  note: {
+    vulnerability: {
+      details: [
+        {
+          affectedCpeUri: 'foo.uri',
+          affectedPackage: 'foo',
+          minAffectedVersion: {
+            kind: 'MINIMUM',
           },
-        ],
-      },
+          fixedVersion: {
+            kind: 'MAXIMUM',
+          },
+        },
+      ],
     },
-  });
+  },
+});
 
-  console.log(`Note ${note.name} created.`);
+console.log(`Note ${note.name} created.`);
 
 ```
 
@@ -152,11 +152,13 @@ More Information: [Google Cloud Platform Launch Stages][launch_stages]
 
 Contributions welcome! See the [Contributing Guide](https://github.com/googleapis/nodejs-containeranalysis/blob/master/CONTRIBUTING.md).
 
-Please note that this `README.md`, the `samples/README.md`,
+Please note that this [README.md](README.md), the [samples/README.md](samples/README.md),
 and a variety of configuration files in this repository (including `.nycrc` and `tsconfig.json`)
-are generated from a central template. To edit one of these files, make an edit
-to its template in this
-[directory](https://github.com/googleapis/synthtool/tree/master/synthtool/gcp/templates/node_library).
+are generated from a central template.
+
+If you would like to make edits to one of those files
+(or if you aren't certain if the file you're changing is one, check in the template repository before making changes),
+look for the file in the [template](https://github.com/googleapis/synthtool/tree/master/synthtool/gcp/templates/node_library).
 
 ## License
 
