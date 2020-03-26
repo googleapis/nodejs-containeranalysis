@@ -18,241 +18,231 @@
 
 import * as protosTypes from '../protos/protos';
 import * as assert from 'assert';
-import {describe, it} from 'mocha';
+import { describe, it } from 'mocha';
+/* eslint-disable @typescript-eslint/no-var-requires */
 const containeranalysisModule = require('../src');
 
+
 const FAKE_STATUS_CODE = 1;
-class FakeError {
-  name: string;
-  message: string;
-  code: number;
-  constructor(n: number) {
-    this.name = 'fakeName';
-    this.message = 'fake message';
-    this.code = n;
-  }
+class FakeError{
+    name: string;
+    message: string;
+    code: number;
+    constructor(n: number){
+        this.name = 'fakeName';
+        this.message = 'fake message';
+        this.code = n;
+    }
 }
 const error = new FakeError(FAKE_STATUS_CODE);
 export interface Callback {
-  (err: FakeError | null, response?: {} | null): void;
+  (err: FakeError|null, response?: {} | null): void;
 }
 
-export class Operation {
-  constructor() {}
-  promise() {}
+export class Operation{
+    constructor(){};
+    promise() {};
 }
-function mockSimpleGrpcMethod(
-  expectedRequest: {},
-  response: {} | null,
-  error: FakeError | null
-) {
-  return (actualRequest: {}, options: {}, callback: Callback) => {
-    assert.deepStrictEqual(actualRequest, expectedRequest);
-    if (error) {
-      callback(error);
-    } else if (response) {
-      callback(null, response);
-    } else {
-      callback(null);
-    }
-  };
+function mockSimpleGrpcMethod(expectedRequest: {}, response: {} | null, error: FakeError | null) {
+    return (actualRequest: {}, options: {}, callback: Callback) => {
+        assert.deepStrictEqual(actualRequest, expectedRequest);
+        if (error) {
+            callback(error);
+        } else if (response) {
+            callback(null, response);
+        } else {
+            callback(null);
+        }
+    };
 }
 describe('v1.ContainerAnalysisClient', () => {
-  it('has servicePath', () => {
-    const servicePath =
-      containeranalysisModule.v1.ContainerAnalysisClient.servicePath;
-    assert(servicePath);
-  });
-  it('has apiEndpoint', () => {
-    const apiEndpoint =
-      containeranalysisModule.v1.ContainerAnalysisClient.apiEndpoint;
-    assert(apiEndpoint);
-  });
-  it('has port', () => {
-    const port = containeranalysisModule.v1.ContainerAnalysisClient.port;
-    assert(port);
-    assert(typeof port === 'number');
-  });
-  it('should create a client with no option', () => {
-    const client = new containeranalysisModule.v1.ContainerAnalysisClient();
-    assert(client);
-  });
-  it('should create a client with gRPC fallback', () => {
-    const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-      fallback: true,
+    it('has servicePath', () => {
+        const servicePath = containeranalysisModule.v1.ContainerAnalysisClient.servicePath;
+        assert(servicePath);
     });
-    assert(client);
-  });
-  it('has initialize method and supports deferred initialization', async () => {
-    const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-      credentials: {client_email: 'bogus', private_key: 'bogus'},
-      projectId: 'bogus',
+    it('has apiEndpoint', () => {
+        const apiEndpoint = containeranalysisModule.v1.ContainerAnalysisClient.apiEndpoint;
+        assert(apiEndpoint);
     });
-    assert.strictEqual(client.containerAnalysisStub, undefined);
-    await client.initialize();
-    assert(client.containerAnalysisStub);
-  });
-  it('has close method', () => {
-    const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-      credentials: {client_email: 'bogus', private_key: 'bogus'},
-      projectId: 'bogus',
+    it('has port', () => {
+        const port = containeranalysisModule.v1.ContainerAnalysisClient.port;
+        assert(port);
+        assert(typeof port === 'number');
     });
-    client.close();
-  });
-  describe('setIamPolicy', () => {
-    it('invokes setIamPolicy without error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.ISetIamPolicyRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.setIamPolicy = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.setIamPolicy(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
+    it('should create a client with no option', () => {
+        const client = new containeranalysisModule.v1.ContainerAnalysisClient();
+        assert(client);
     });
+    it('should create a client with gRPC fallback', () => {
+        const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+            fallback: true,
+        });
+        assert(client);
+    });
+    it('has initialize method and supports deferred initialization', async () => {
+        const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+            credentials: { client_email: 'bogus', private_key: 'bogus' },
+            projectId: 'bogus',
+        });
+        assert.strictEqual(client.containerAnalysisStub, undefined);
+        await client.initialize();
+        assert(client.containerAnalysisStub);
+    });
+    it('has close method', () => {
+        const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+            credentials: { client_email: 'bogus', private_key: 'bogus' },
+            projectId: 'bogus',
+        });
+        client.close();
+    });
+    describe('setIamPolicy', () => {
+        it('invokes setIamPolicy without error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.ISetIamPolicyRequest = {};
+            request.resource = '';
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.setIamPolicy = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.setIamPolicy(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
 
-    it('invokes setIamPolicy with error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.ISetIamPolicyRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.setIamPolicy = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.setIamPolicy(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
+        it('invokes setIamPolicy with error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.ISetIamPolicyRequest = {};
+            request.resource = '';
+            // Mock gRPC layer
+            client._innerApiCalls.setIamPolicy = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.setIamPolicy(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
     });
-  });
-  describe('getIamPolicy', () => {
-    it('invokes getIamPolicy without error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.IGetIamPolicyRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.getIamPolicy = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.getIamPolicy(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
+    describe('getIamPolicy', () => {
+        it('invokes getIamPolicy without error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.IGetIamPolicyRequest = {};
+            request.resource = '';
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.getIamPolicy = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.getIamPolicy(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
 
-    it('invokes getIamPolicy with error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.IGetIamPolicyRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.getIamPolicy = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.getIamPolicy(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
+        it('invokes getIamPolicy with error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.IGetIamPolicyRequest = {};
+            request.resource = '';
+            // Mock gRPC layer
+            client._innerApiCalls.getIamPolicy = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.getIamPolicy(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
     });
-  });
-  describe('testIamPermissions', () => {
-    it('invokes testIamPermissions without error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.ITestIamPermissionsRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.testIamPermissions = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.testIamPermissions(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
+    describe('testIamPermissions', () => {
+        it('invokes testIamPermissions without error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.ITestIamPermissionsRequest = {};
+            request.resource = '';
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.testIamPermissions = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.testIamPermissions(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
 
-    it('invokes testIamPermissions with error', done => {
-      const client = new containeranalysisModule.v1.ContainerAnalysisClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Initialize client before mocking
-      client.initialize();
-      // Mock request
-      const request: protosTypes.google.iam.v1.ITestIamPermissionsRequest = {};
-      request.resource = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.testIamPermissions = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.testIamPermissions(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
+        it('invokes testIamPermissions with error', done => {
+            const client = new containeranalysisModule.v1.ContainerAnalysisClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Initialize client before mocking
+            client.initialize();
+            // Mock request
+            const request: protosTypes.google.iam.v1.ITestIamPermissionsRequest = {};
+            request.resource = '';
+            // Mock gRPC layer
+            client._innerApiCalls.testIamPermissions = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.testIamPermissions(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
     });
-  });
 });
