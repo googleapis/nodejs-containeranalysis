@@ -54,7 +54,7 @@ s.replace("src/v1/container_analysis_client.ts",
 """import \* as path from \'path\';
 """,
 """import * as path from 'path';
-const { GrafeasClient } = require('@google-cloud/grafeas');
+import {GrafeasClient} from '@google-cloud/grafeas';
 """)
 s.replace("src/v1/container_analysis_client.ts", "^}",
 r"""
@@ -68,7 +68,7 @@ r"""
    *
    */
   getGrafeasClient() {
-    return new GrafeasClient(this._opts);
+    return new GrafeasClient(this._opts as {});
   }
 }
 """)
