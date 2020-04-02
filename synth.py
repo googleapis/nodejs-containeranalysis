@@ -73,7 +73,7 @@ r"""
 }
 """)
 # Node.js specific cleanup
-to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client.ts','src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic-grafeas_v1_beta1-v1beta1.ts', 'test/gapic-grafeas-v1.ts', 'test/gapic-grafeas-v1beta1.ts']
+to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client.ts','src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic_grafeas_v1_beta1_v1beta1.ts', 'test/gapic_grafeas_v1.ts', 'test/gapic_grafeas_v1beta1.ts']
 for filePath in to_remove:
     os.unlink(filePath)
 # remove unneeded protos in proto_list.json
