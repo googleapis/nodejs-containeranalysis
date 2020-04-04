@@ -1,6 +1,5 @@
 [
   "../../protos/google/devtools/containeranalysis/v1/containeranalysis.proto",
-  "../../protos/google/type/expr.proto",
   "../../protos/grafeas/v1/attestation.proto",
   "../../protos/grafeas/v1/build.proto",
   "../../protos/grafeas/v1/common.proto",
