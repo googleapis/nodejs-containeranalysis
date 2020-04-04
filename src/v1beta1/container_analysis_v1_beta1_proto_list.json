@@ -12,6 +12,7 @@
   "../../protos/google/devtools/containeranalysis/v1beta1/provenance/provenance.proto",
   "../../protos/google/devtools/containeranalysis/v1beta1/source/source.proto",
   "../../protos/google/devtools/containeranalysis/v1beta1/vulnerability/vulnerability.proto",
+  "../../protos/google/type/expr.proto",
   "../../protos/grafeas/v1/attestation.proto",
   "../../protos/grafeas/v1/build.proto",
   "../../protos/grafeas/v1/common.proto",

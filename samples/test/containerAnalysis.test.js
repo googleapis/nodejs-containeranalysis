@@ -343,8 +343,8 @@ describe('pubsub', () => {
     await pubsub.subscription(subscriptionId).delete();
   });
 
-  it('should get count of occurrences from pubsub topic', async () => {
-    const occurrenceCount = 3;
+  it('should get accurate count of occurrences from pubsub topic', async () => {
+    const expectedNum = 3;
     const pubSubOccurrenceReq = {
       parent: formattedParent,
       occurrence: {
@@ -372,8 +372,14 @@ describe('pubsub', () => {
       `node occurrencePubSub.js "${projectId}" "${subscriptionId}" "${timeoutSeconds}"`
     );
 
+    // make sure empty
+    const empty = execSync(
+      `node occurrencePubSub.js "${projectId}" "${subscriptionId}" "${timeoutSeconds}"`
+    );
+
+    assert.include(empty, 'Polled 0 occurrences');
     // create test occurrences
-    for (let i = 0; i < occurrenceCount; i++) {
+    for (let i = 0; i < expectedNum; i++) {
       const [
         pubSubOccurrence,
       ] = await client.getGrafeasClient().createOccurrence(pubSubOccurrenceReq);
@@ -385,7 +391,7 @@ describe('pubsub', () => {
       `node occurrencePubSub.js "${projectId}" "${subscriptionId}" "${timeoutSeconds}"`
     );
 
-    // ensure that our occcurences were enqueued:
-    assert.match(output, /Polled [1-9]+ occurrences/);
+    // make sure pubsub number matches
+    assert.include(output, `Polled ${expectedNum} occurrences`);
   });
 });
