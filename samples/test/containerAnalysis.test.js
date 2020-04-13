@@ -17,7 +17,7 @@
 const {assert} = require('chai');
 const {describe, it, before, after, afterEach, beforeEach} = require('mocha');
 const cp = require('child_process');
-const delay = require('./util');
+const {delay} = require('./util');
 const uuid = require('uuid');
 
 const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
