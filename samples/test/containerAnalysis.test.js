@@ -15,7 +15,7 @@
 'use strict';
 
 const {assert} = require('chai');
-const {describe, it, before, after, beforeEach} = require('mocha');
+const {describe, it, before, after} = require('mocha');
 const cp = require('child_process');
 const {delay} = require('./util');
 const uuid = require('uuid');
@@ -313,7 +313,7 @@ describe('pubsub', () => {
   });
 
   describe('occurrences from pubsub subscription', () => {
-    beforeEach(async () => {
+    before(async () => {
       await topic.createSubscription(subscriptionId);
       const pubSubNoteReq = {
         parent: formattedParent,
