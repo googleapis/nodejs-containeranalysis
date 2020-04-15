@@ -51,7 +51,12 @@ export class ContainerAnalysisClient {
   private _protos: {};
   private _defaults: {[method: string]: gax.CallSettings};
   auth: gax.GoogleAuth;
-  descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}, batching: {}};
+  descriptors: Descriptors = {
+    page: {},
+    stream: {},
+    longrunning: {},
+    batching: {},
+  };
   innerApiCalls: {[name: string]: Function};
   pathTemplates: {[name: string]: gax.PathTemplate};
   containerAnalysisStub?: Promise<{[name: string]: Function}>;
@@ -85,10 +90,12 @@ export class ContainerAnalysisClient {
   constructor(opts?: ClientOptions) {
     // Ensure that options include the service address and port.
     const staticMembers = this.constructor as typeof ContainerAnalysisClient;
-    const servicePath = opts && opts.servicePath ?
-        opts.servicePath :
-        ((opts && opts.apiEndpoint) ? opts.apiEndpoint :
-                                      staticMembers.servicePath);
+    const servicePath =
+      opts && opts.servicePath
+        ? opts.servicePath
+        : opts && opts.apiEndpoint
+        ? opts.apiEndpoint
+        : staticMembers.servicePath;
     const port = opts && opts.port ? opts.port : staticMembers.port;
 
     if (!opts) {
@@ -98,8 +105,8 @@ export class ContainerAnalysisClient {
     opts.port = opts.port || port;
     opts.clientConfig = opts.clientConfig || {};
 
-    const isBrowser = (typeof window !== 'undefined');
-    if (isBrowser){
+    const isBrowser = typeof window !== 'undefined';
+    if (isBrowser) {
       opts.fallback = true;
     }
     // If we are in browser, we are already using fallback because of the
@@ -116,13 +123,10 @@ export class ContainerAnalysisClient {
     this._opts = opts;
 
     // Save the auth object to the client, for use by other methods.
-    this.auth = (this._gaxGrpc.auth as gax.GoogleAuth);
+    this.auth = this._gaxGrpc.auth as gax.GoogleAuth;
 
     // Determine the client header string.
-    const clientHeader = [
-      `gax/${this._gaxModule.version}`,
-      `gapic/${version}`,
-    ];
+    const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
       clientHeader.push(`gl-node/${process.versions.node}`);
     } else {
@@ -138,12 +142,18 @@ export class ContainerAnalysisClient {
     // For Node.js, pass the path to JSON proto file.
     // For browsers, pass the JSON content.
 
-    const nodejsProtoPath = path.join(__dirname, '..', '..', 'protos', 'protos.json');
+    const nodejsProtoPath = path.join(
+      __dirname,
+      '..',
+      '..',
+      'protos',
+      'protos.json'
+    );
     this._protos = this._gaxGrpc.loadProto(
-      opts.fallback ?
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        require("../../protos/protos.json") :
-        nodejsProtoPath
+      opts.fallback
+        ? // eslint-disable-next-line @typescript-eslint/no-var-requires
+          require('../../protos/protos.json')
+        : nodejsProtoPath
     );
 
     // This API contains "path templates"; forward-slash-separated
@@ -160,8 +170,11 @@ export class ContainerAnalysisClient {
 
     // Put together the default options sent with requests.
     this._defaults = this._gaxGrpc.constructSettings(
-        'google.devtools.containeranalysis.v1.ContainerAnalysis', gapicConfig as gax.ClientConfig,
-        opts.clientConfig || {}, {'x-goog-api-client': clientHeader.join(' ')});
+      'google.devtools.containeranalysis.v1.ContainerAnalysis',
+      gapicConfig as gax.ClientConfig,
+      opts.clientConfig || {},
+      {'x-goog-api-client': clientHeader.join(' ')}
+    );
 
     // Set up a dictionary of "inner API calls"; the core implementation
     // of calling the API is handled in `google-gax`, with this code
@@ -189,16 +202,23 @@ export class ContainerAnalysisClient {
     // Put together the "service stub" for
     // google.devtools.containeranalysis.v1.ContainerAnalysis.
     this.containerAnalysisStub = this._gaxGrpc.createStub(
-        this._opts.fallback ?
-          (this._protos as protobuf.Root).lookupService('google.devtools.containeranalysis.v1.ContainerAnalysis') :
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (this._protos as any).google.devtools.containeranalysis.v1.ContainerAnalysis,
-        this._opts) as Promise<{[method: string]: Function}>;
+      this._opts.fallback
+        ? (this._protos as protobuf.Root).lookupService(
+            'google.devtools.containeranalysis.v1.ContainerAnalysis'
+          )
+        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (this._protos as any).google.devtools.containeranalysis.v1
+            .ContainerAnalysis,
+      this._opts
+    ) as Promise<{[method: string]: Function}>;
 
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
-    const containerAnalysisStubMethods =
-        ['setIamPolicy', 'getIamPolicy', 'testIamPermissions'];
+    const containerAnalysisStubMethods = [
+      'setIamPolicy',
+      'getIamPolicy',
+      'testIamPermissions',
+    ];
     for (const methodName of containerAnalysisStubMethods) {
       const callPromise = this.containerAnalysisStub.then(
         stub => (...args: Array<{}>) => {
@@ -208,16 +228,17 @@ export class ContainerAnalysisClient {
           const func = stub[methodName];
           return func.apply(stub, args);
         },
-        (err: Error|null|undefined) => () => {
+        (err: Error | null | undefined) => () => {
           throw err;
-        });
+        }
+      );
 
       const apiCall = this._gaxModule.createApiCall(
         callPromise,
         this._defaults[methodName],
         this.descriptors.page[methodName] ||
-            this.descriptors.stream[methodName] ||
-            this.descriptors.longrunning[methodName]
+          this.descriptors.stream[methodName] ||
+          this.descriptors.longrunning[methodName]
       );
 
       this.innerApiCalls[methodName] = apiCall;
@@ -253,9 +274,7 @@ export class ContainerAnalysisClient {
    * in this service.
    */
   static get scopes() {
-    return [
-      'https://www.googleapis.com/auth/cloud-platform'
-    ];
+    return ['https://www.googleapis.com/auth/cloud-platform'];
   }
 
   getProjectId(): Promise<string>;
@@ -265,8 +284,9 @@ export class ContainerAnalysisClient {
    * @param {function(Error, string)} callback - the callback to
    *   be called with the current project Id.
    */
-  getProjectId(callback?: Callback<string, undefined, undefined>):
-      Promise<string>|void {
+  getProjectId(
+    callback?: Callback<string, undefined, undefined>
+  ): Promise<string> | void {
     if (callback) {
       this.auth.getProjectId(callback);
       return;
@@ -278,19 +298,24 @@ export class ContainerAnalysisClient {
   // -- Service calls --
   // -------------------
   setIamPolicy(
-      request: protos.google.iam.v1.ISetIamPolicyRequest,
-      options?: gax.CallOptions):
-      Promise<[
-        protos.google.iam.v1.IPolicy,
-        protos.google.iam.v1.ISetIamPolicyRequest|undefined, {}|undefined
-      ]>;
+    request: protos.google.iam.v1.ISetIamPolicyRequest,
+    options?: gax.CallOptions
+  ): Promise<
+    [
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.ISetIamPolicyRequest | undefined,
+      {} | undefined
+    ]
+  >;
   setIamPolicy(
-      request: protos.google.iam.v1.ISetIamPolicyRequest,
-      options: gax.CallOptions,
-      callback: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.iam.v1.ISetIamPolicyRequest,
+    options: gax.CallOptions,
+    callback: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   setIamPolicy(
     request: protos.google.iam.v1.ISetIamPolicyRequest,
     callback: Callback<
@@ -320,26 +345,32 @@ export class ContainerAnalysisClient {
    *   The promise has a method named "cancel" which cancels the ongoing API call.
    */
   setIamPolicy(
-      request: protos.google.iam.v1.ISetIamPolicyRequest,
-      optionsOrCallback?: gax.CallOptions|Callback<
+    request: protos.google.iam.v1.ISetIamPolicyRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
           protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.ISetIamPolicyRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.iam.v1.IPolicy,
-        protos.google.iam.v1.ISetIamPolicyRequest|undefined, {}|undefined
-      ]>|void {
+          protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.ISetIamPolicyRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: gax.CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as gax.CallOptions;
     }
     options = options || {};
@@ -348,25 +379,30 @@ export class ContainerAnalysisClient {
     options.otherArgs.headers[
       'x-goog-request-params'
     ] = gax.routingHeader.fromParams({
-      'resource': request.resource || '',
+      resource: request.resource || '',
     });
     this.initialize();
     return this.innerApiCalls.setIamPolicy(request, options, callback);
   }
   getIamPolicy(
-      request: protos.google.iam.v1.IGetIamPolicyRequest,
-      options?: gax.CallOptions):
-      Promise<[
-        protos.google.iam.v1.IPolicy,
-        protos.google.iam.v1.IGetIamPolicyRequest|undefined, {}|undefined
-      ]>;
+    request: protos.google.iam.v1.IGetIamPolicyRequest,
+    options?: gax.CallOptions
+  ): Promise<
+    [
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.IGetIamPolicyRequest | undefined,
+      {} | undefined
+    ]
+  >;
   getIamPolicy(
-      request: protos.google.iam.v1.IGetIamPolicyRequest,
-      options: gax.CallOptions,
-      callback: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.iam.v1.IGetIamPolicyRequest,
+    options: gax.CallOptions,
+    callback: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   getIamPolicy(
     request: protos.google.iam.v1.IGetIamPolicyRequest,
     callback: Callback<
@@ -396,26 +432,32 @@ export class ContainerAnalysisClient {
    *   The promise has a method named "cancel" which cancels the ongoing API call.
    */
   getIamPolicy(
-      request: protos.google.iam.v1.IGetIamPolicyRequest,
-      optionsOrCallback?: gax.CallOptions|Callback<
+    request: protos.google.iam.v1.IGetIamPolicyRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
           protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.iam.v1.IPolicy,
-          protos.google.iam.v1.IGetIamPolicyRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.iam.v1.IPolicy,
-        protos.google.iam.v1.IGetIamPolicyRequest|undefined, {}|undefined
-      ]>|void {
+          protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.iam.v1.IPolicy,
+      protos.google.iam.v1.IGetIamPolicyRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: gax.CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as gax.CallOptions;
     }
     options = options || {};
@@ -424,25 +466,30 @@ export class ContainerAnalysisClient {
     options.otherArgs.headers[
       'x-goog-request-params'
     ] = gax.routingHeader.fromParams({
-      'resource': request.resource || '',
+      resource: request.resource || '',
     });
     this.initialize();
     return this.innerApiCalls.getIamPolicy(request, options, callback);
   }
   testIamPermissions(
-      request: protos.google.iam.v1.ITestIamPermissionsRequest,
-      options?: gax.CallOptions):
-      Promise<[
-        protos.google.iam.v1.ITestIamPermissionsResponse,
-        protos.google.iam.v1.ITestIamPermissionsRequest|undefined, {}|undefined
-      ]>;
+    request: protos.google.iam.v1.ITestIamPermissionsRequest,
+    options?: gax.CallOptions
+  ): Promise<
+    [
+      protos.google.iam.v1.ITestIamPermissionsResponse,
+      protos.google.iam.v1.ITestIamPermissionsRequest | undefined,
+      {} | undefined
+    ]
+  >;
   testIamPermissions(
-      request: protos.google.iam.v1.ITestIamPermissionsRequest,
-      options: gax.CallOptions,
-      callback: Callback<
-          protos.google.iam.v1.ITestIamPermissionsResponse,
-          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
-          {}|null|undefined>): void;
+    request: protos.google.iam.v1.ITestIamPermissionsRequest,
+    options: gax.CallOptions,
+    callback: Callback<
+      protos.google.iam.v1.ITestIamPermissionsResponse,
+      protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): void;
   testIamPermissions(
     request: protos.google.iam.v1.ITestIamPermissionsRequest,
     callback: Callback<
@@ -471,26 +518,32 @@ export class ContainerAnalysisClient {
    *   The promise has a method named "cancel" which cancels the ongoing API call.
    */
   testIamPermissions(
-      request: protos.google.iam.v1.ITestIamPermissionsRequest,
-      optionsOrCallback?: gax.CallOptions|Callback<
+    request: protos.google.iam.v1.ITestIamPermissionsRequest,
+    optionsOrCallback?:
+      | gax.CallOptions
+      | Callback<
           protos.google.iam.v1.ITestIamPermissionsResponse,
-          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
-          {}|null|undefined>,
-      callback?: Callback<
-          protos.google.iam.v1.ITestIamPermissionsResponse,
-          protos.google.iam.v1.ITestIamPermissionsRequest|null|undefined,
-          {}|null|undefined>):
-      Promise<[
-        protos.google.iam.v1.ITestIamPermissionsResponse,
-        protos.google.iam.v1.ITestIamPermissionsRequest|undefined, {}|undefined
-      ]>|void {
+          protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
+          {} | null | undefined
+        >,
+    callback?: Callback<
+      protos.google.iam.v1.ITestIamPermissionsResponse,
+      protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
+      {} | null | undefined
+    >
+  ): Promise<
+    [
+      protos.google.iam.v1.ITestIamPermissionsResponse,
+      protos.google.iam.v1.ITestIamPermissionsRequest | undefined,
+      {} | undefined
+    ]
+  > | void {
     request = request || {};
     let options: gax.CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
-    }
-    else {
+    } else {
       options = optionsOrCallback as gax.CallOptions;
     }
     options = options || {};
@@ -499,7 +552,7 @@ export class ContainerAnalysisClient {
     options.otherArgs.headers[
       'x-goog-request-params'
     ] = gax.routingHeader.fromParams({
-      'resource': request.resource || '',
+      resource: request.resource || '',
     });
     this.initialize();
     return this.innerApiCalls.testIamPermissions(request, options, callback);
@@ -516,7 +569,7 @@ export class ContainerAnalysisClient {
    * @param {string} note
    * @returns {string} Resource name string.
    */
-  notePath(project:string,note:string) {
+  notePath(project: string, note: string) {
     return this.pathTemplates.notePathTemplate.render({
       project: project,
       note: note,
@@ -552,7 +605,7 @@ export class ContainerAnalysisClient {
    * @param {string} occurrence
    * @returns {string} Resource name string.
    */
-  occurrencePath(project:string,occurrence:string) {
+  occurrencePath(project: string, occurrence: string) {
     return this.pathTemplates.occurrencePathTemplate.render({
       project: project,
       occurrence: occurrence,
@@ -567,7 +620,8 @@ export class ContainerAnalysisClient {
    * @returns {string} A string representing the project.
    */
   matchProjectFromOccurrenceName(occurrenceName: string) {
-    return this.pathTemplates.occurrencePathTemplate.match(occurrenceName).project;
+    return this.pathTemplates.occurrencePathTemplate.match(occurrenceName)
+      .project;
   }
 
   /**
@@ -578,7 +632,8 @@ export class ContainerAnalysisClient {
    * @returns {string} A string representing the occurrence.
    */
   matchOccurrenceFromOccurrenceName(occurrenceName: string) {
-    return this.pathTemplates.occurrencePathTemplate.match(occurrenceName).occurrence;
+    return this.pathTemplates.occurrencePathTemplate.match(occurrenceName)
+      .occurrence;
   }
 
   /**
@@ -610,4 +665,3 @@ export class ContainerAnalysisClient {
     return new GrafeasClient(this._opts as {});
   }
 }
-
