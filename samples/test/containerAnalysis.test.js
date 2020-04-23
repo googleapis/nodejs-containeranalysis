@@ -349,7 +349,14 @@ describe('pubsub', () => {
           },
         },
       };
-      await client.getGrafeasClient().createNote(pubSubNoteReq);
+      try {
+        await client.getGrafeasClient().createNote(pubSubNoteReq);
+      } catch (err) {
+        console.log(`note creation failed: ${noteId}-pubsub ${err.message}`);
+        if (!err.message.includes('ALREADY_EXISTS')) {
+          throw err;
+        }
+      }
       const occurrenceCount = 3;
       const pubSubOccurrenceReq = {
         parent: formattedParent,
