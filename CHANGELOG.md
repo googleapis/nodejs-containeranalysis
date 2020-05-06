@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/containeranalysis?activeTab=versions
 
+### [2.0.1](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v2.0.0...v2.0.1) (2020-05-06)
+
+
+### Bug Fixes
+
+* remove unneeded common protos in generated proto list ([#207](https://www.github.com/googleapis/nodejs-containeranalysis/issues/207)) ([3cdfed3](https://www.github.com/googleapis/nodejs-containeranalysis/commit/3cdfed35ea873951dd1eb8228707c412b2747b8d))
+
 ## [2.0.0](https://www.github.com/googleapis/nodejs-containeranalysis/compare/v1.10.0...v2.0.0) (2020-04-23)
 
 
