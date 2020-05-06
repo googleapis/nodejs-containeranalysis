@@ -75,4 +75,9 @@ r"""
   }
 }
 """)
+
+to_remove=['src/v1/grafeas_client.ts', 'src/v1/grafeas_client_config.json', 'src/v1/grafeas_proto_list.json', 'src/v1beta1/grafeas_client.ts','src/v1beta1/grafeas_client_config.json', 'src/v1beta1/grafeas_proto_list.json', 'test/gapic_grafeas_v1_beta1_v1beta1.ts', 'test/gapic_grafeas_v1.ts', 'test/gapic_grafeas_v1beta1.ts']
+for filePath in to_remove:
+    os.unlink(filePath)
+
 node.postprocess_gapic_library()
