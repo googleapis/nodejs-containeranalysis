@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:googleapis/nodejs-containeranalysis.git",
-        "sha": "9a94b7be90ccc820f3c2181273ba456fb1e22b4d"
+        "sha": "9742713846fea70454744031d085bfd18f353e7b"
       }
     },
     {
@@ -28,7 +28,7 @@
       "client": {
         "source": "googleapis",
         "apiName": "containeranalysis",
-        "apiVersion": "v1",
+        "apiVersion": "v1beta1",
         "language": "typescript",
         "generator": "gapic-generator-typescript"
       }
@@ -37,7 +37,7 @@
       "client": {
         "source": "googleapis",
         "apiName": "containeranalysis",
-        "apiVersion": "v1beta1",
+        "apiVersion": "v1",
         "language": "typescript",
         "generator": "gapic-generator-typescript"
       }

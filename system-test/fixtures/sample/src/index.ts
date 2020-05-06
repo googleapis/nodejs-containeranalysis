@@ -17,15 +17,13 @@
 // ** All changes to this file may be overwritten. **
 
 import {
-  ContainerAnalysisV1Beta1Client,
+  ContainerAnalysisClient,
   GrafeasClient,
-  GrafeasV1Beta1Client,
 } from '@google-cloud/containeranalysis';
 
 function main() {
-  new ContainerAnalysisV1Beta1Client();
+  new ContainerAnalysisClient();
   new GrafeasClient();
-  new GrafeasV1Beta1Client();
 }
 
 main();
