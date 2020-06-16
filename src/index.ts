@@ -23,5 +23,6 @@ const ContainerAnalysisClient = v1.ContainerAnalysisClient;
 
 export {v1beta1, v1, ContainerAnalysisClient};
 export default {v1beta1, v1, ContainerAnalysisClient};
+
 import * as protos from '../protos/protos';
 export {protos};

@@ -112,16 +112,20 @@ export class GrafeasV1Beta1Client {
     }
     opts.servicePath = opts.servicePath || servicePath;
     opts.port = opts.port || port;
+
+    // users can override the config from client side, like retry codes name.
+    // The detailed structure of the clientConfig can be found here: https://github.com/googleapis/gax-nodejs/blob/master/src/gax.ts#L546
+    // The way to override client config for Showcase API:
+    //
+    // const customConfig = {"interfaces": {"google.showcase.v1beta1.Echo": {"methods": {"Echo": {"retry_codes_name": "idempotent", "retry_params_name": "default"}}}}}
+    // const showcaseClient = new showcaseClient({ projectId, customConfig });
     opts.clientConfig = opts.clientConfig || {};
 
-    const isBrowser = typeof window !== 'undefined';
-    if (isBrowser) {
-      opts.fallback = true;
-    }
-    // If we are in browser, we are already using fallback because of the
-    // "browser" field in package.json.
-    // But if we were explicitly requested to use fallback, let's do it now.
-    this._gaxModule = !isBrowser && opts.fallback ? gax.fallback : gax;
+    // If we're running in browser, it's OK to omit `fallback` since
+    // google-gax has `browser` field in its `package.json`.
+    // For Electron (which does not respect `browser` field),
+    // pass `{fallback: true}` to the GrafeasV1Beta1Client constructor.
+    this._gaxModule = opts.fallback ? gax.fallback : gax;
 
     // Create a `gaxGrpc` object, with any grpc-specific options
     // sent to the client.
@@ -541,7 +545,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.parent
    *   The name of the project in the form of `projects/[PROJECT_ID]`, under which
    *   the occurrence is to be created.
-   * @param {grafeas.v1.Occurrence} request.occurrence
+   * @param {grafeas.v1beta1.Occurrence} request.occurrence
    *   The occurrence to create.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -625,7 +629,7 @@ export class GrafeasV1Beta1Client {
    *   The name of the project in the form of `projects/[PROJECT_ID]`, under which
    *   the occurrences are to be created.
    * @param {number[]} request.occurrences
-   *   The occurrences to create. Max allowed length is 1000.
+   *   The occurrences to create.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -713,7 +717,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.name
    *   The name of the occurrence in the form of
    *   `projects/[PROJECT_ID]/occurrences/[OCCURRENCE_ID]`.
-   * @param {grafeas.v1.Occurrence} request.occurrence
+   * @param {grafeas.v1beta1.Occurrence} request.occurrence
    *   The updated occurrence.
    * @param {google.protobuf.FieldMask} request.updateMask
    *   The fields to update.
@@ -1044,7 +1048,7 @@ export class GrafeasV1Beta1Client {
    *   the note is to be created.
    * @param {string} request.noteId
    *   The ID to use for this note.
-   * @param {grafeas.v1.Note} request.note
+   * @param {grafeas.v1beta1.Note} request.note
    *   The note to create.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -1128,7 +1132,7 @@ export class GrafeasV1Beta1Client {
    *   The name of the project in the form of `projects/[PROJECT_ID]`, under which
    *   the notes are to be created.
    * @param {number[]} request.notes
-   *   The notes to create. Max allowed length is 1000.
+   *   The notes to create.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1210,7 +1214,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.name
    *   The name of the note in the form of
    *   `projects/[PROVIDER_ID]/notes/[NOTE_ID]`.
-   * @param {grafeas.v1.Note} request.note
+   * @param {grafeas.v1beta1.Note} request.note
    *   The updated note.
    * @param {google.protobuf.FieldMask} request.updateMask
    *   The fields to update.
@@ -1400,8 +1404,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of occurrences to return in the list. Must be positive. Max allowed
-   *   page size is 1000. If not specified, page size defaults to 20.
+   *   Number of occurrences to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]
@@ -1484,8 +1487,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of occurrences to return in the list. Must be positive. Max allowed
-   *   page size is 1000. If not specified, page size defaults to 20.
+   *   Number of occurrences to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]
@@ -1528,8 +1530,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of occurrences to return in the list. Must be positive. Max allowed
-   *   page size is 1000. If not specified, page size defaults to 20.
+   *   Number of occurrences to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]
@@ -1597,8 +1598,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of notes to return in the list. Must be positive. Max allowed page
-   *   size is 1000. If not specified, page size defaults to 20.
+   *   Number of notes to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]
@@ -1681,8 +1681,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of notes to return in the list. Must be positive. Max allowed page
-   *   size is 1000. If not specified, page size defaults to 20.
+   *   Number of notes to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]
@@ -1725,8 +1724,7 @@ export class GrafeasV1Beta1Client {
    * @param {string} request.filter
    *   The filter expression.
    * @param {number} request.pageSize
-   *   Number of notes to return in the list. Must be positive. Max allowed page
-   *   size is 1000. If not specified, page size defaults to 20.
+   *   Number of notes to return in the list.
    * @param {string} request.pageToken
    *   Token to provide to skip to a particular spot in the list.
    * @param {object} [options]

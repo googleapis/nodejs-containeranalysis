@@ -50,6 +50,12 @@ templates = common_templates.node_library(
     source_location='build/src', versions=versions, default_version='v1')
 s.copy(templates)
 
+# Add beta version GrafeasClient to export
+s.replace('src/index.ts',
+          '\nexport \{v1beta1\, v1\, ContainerAnalysisClient\}\;\nexport default \{v1beta1\, v1\, ContainerAnalysisClient\}\;',
+          'const GrafeasClient = v1beta1.GrafeasV1Beta1Client;\n\nexport {v1, v1beta1, ContainerAnalysisClient, GrafeasClient};\nexport default {v1, v1beta1, ContainerAnalysisClient, GrafeasClient};')
+
+
 # # fix the URL of grafeas.io (this is already fixed upstream).
 s.replace('src/v1beta1/*.ts',
           'grafeas.io',
