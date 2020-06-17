@@ -4,22 +4,22 @@
       "git": {
         "name": ".",
         "remote": "git@github.com:googleapis/nodejs-containeranalysis.git",
-        "sha": "4d48271be21ba75c152d0104c1b4fe2d912d5c31"
+        "sha": "84be70b0dbc01756cea0152f95c07e2cea819f64"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "cdf59a76184d5ddc24531f41567cf2411ae74593",
-        "internalRef": "312479172"
+        "sha": "c1ba5ba3f24307ca5a6df350d0137c29d69983d5",
+        "internalRef": "316715576"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "7ee92820e64c0aea379781b82399d6b3f3c8655f"
+        "sha": "c4f3059c27591eb24d6942a0e357ec94c80459f2"
       }
     }
   ],
