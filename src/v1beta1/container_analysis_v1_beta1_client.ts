@@ -30,6 +30,11 @@ import * as path from 'path';
 import {Transform} from 'stream';
 import {RequestType} from 'google-gax/build/src/apitypes';
 import * as protos from '../../protos/protos';
+/**
+ * Client JSON configuration object, loaded from
+ * `src/v1beta1/container_analysis_v1_beta1_client_config.json`.
+ * This file defines retry strategy and timeouts for all API methods in this library.
+ */
 import * as gapicConfig from './container_analysis_v1_beta1_client_config.json';
 
 const version = require('../../../package.json').version;
@@ -95,9 +100,9 @@ export class ContainerAnalysisV1Beta1Client {
    *     your project ID will be detected automatically.
    * @param {string} [options.apiEndpoint] - The domain name of the
    *     API remote host.
-   * @param {gax.ClientConfig} [options.clientConfig] - client configuration override.
-   *     Follows the structure of `container_analysis_v1_beta1_client_config.json`.
-   * @param {boolean} fallback - Use HTTP fallback mode.
+   * @param {gax.ClientConfig} [options.clientConfig] - Client configuration override.
+   *     Follows the structure of {@link gapicConfig}.
+   * @param {boolean} [options.fallback] - Use HTTP fallback mode.
    *     In fallback mode, a special browser-compatible transport implementation is used
    *     instead of gRPC transport. In browser context (if the `window` object is defined)
    *     the fallback mode is enabled automatically; set `options.fallback` to `false`
@@ -111,6 +116,7 @@ export class ContainerAnalysisV1Beta1Client {
       opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
     const port = opts?.port || staticMembers.port;
     const clientConfig = opts?.clientConfig ?? {};
+    // eslint-disable-next-line no-undef
     const fallback =
       opts?.fallback ??
       (typeof window !== 'undefined' && typeof window.fetch !== 'undefined');
@@ -328,7 +334,7 @@ export class ContainerAnalysisV1Beta1Client {
   // -------------------
   setIamPolicy(
     request: protos.google.iam.v1.ISetIamPolicyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.iam.v1.IPolicy,
@@ -338,7 +344,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   setIamPolicy(
     request: protos.google.iam.v1.ISetIamPolicyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.iam.v1.IPolicy,
       protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
@@ -386,7 +392,7 @@ export class ContainerAnalysisV1Beta1Client {
   setIamPolicy(
     request: protos.google.iam.v1.ISetIamPolicyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.iam.v1.IPolicy,
           protos.google.iam.v1.ISetIamPolicyRequest | null | undefined,
@@ -405,12 +411,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -425,7 +431,7 @@ export class ContainerAnalysisV1Beta1Client {
   }
   getIamPolicy(
     request: protos.google.iam.v1.IGetIamPolicyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.iam.v1.IPolicy,
@@ -435,7 +441,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   getIamPolicy(
     request: protos.google.iam.v1.IGetIamPolicyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.iam.v1.IPolicy,
       protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
@@ -481,7 +487,7 @@ export class ContainerAnalysisV1Beta1Client {
   getIamPolicy(
     request: protos.google.iam.v1.IGetIamPolicyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.iam.v1.IPolicy,
           protos.google.iam.v1.IGetIamPolicyRequest | null | undefined,
@@ -500,12 +506,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -520,7 +526,7 @@ export class ContainerAnalysisV1Beta1Client {
   }
   testIamPermissions(
     request: protos.google.iam.v1.ITestIamPermissionsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.iam.v1.ITestIamPermissionsResponse,
@@ -530,7 +536,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   testIamPermissions(
     request: protos.google.iam.v1.ITestIamPermissionsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.iam.v1.ITestIamPermissionsResponse,
       protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
@@ -577,7 +583,7 @@ export class ContainerAnalysisV1Beta1Client {
   testIamPermissions(
     request: protos.google.iam.v1.ITestIamPermissionsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.iam.v1.ITestIamPermissionsResponse,
           protos.google.iam.v1.ITestIamPermissionsRequest | null | undefined,
@@ -596,12 +602,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -616,7 +622,7 @@ export class ContainerAnalysisV1Beta1Client {
   }
   getScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
@@ -629,7 +635,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   getScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
       | protos.google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest
@@ -669,7 +675,7 @@ export class ContainerAnalysisV1Beta1Client {
   getScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
           | protos.google.devtools.containeranalysis.v1beta1.IGetScanConfigRequest
@@ -695,12 +701,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -715,7 +721,7 @@ export class ContainerAnalysisV1Beta1Client {
   }
   updateScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
@@ -728,7 +734,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   updateScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
       | protos.google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest
@@ -770,7 +776,7 @@ export class ContainerAnalysisV1Beta1Client {
   updateScanConfig(
     request: protos.google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.devtools.containeranalysis.v1beta1.IScanConfig,
           | protos.google.devtools.containeranalysis.v1beta1.IUpdateScanConfigRequest
@@ -796,12 +802,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -817,7 +823,7 @@ export class ContainerAnalysisV1Beta1Client {
 
   listScanConfigs(
     request: protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.devtools.containeranalysis.v1beta1.IScanConfig[],
@@ -827,7 +833,7 @@ export class ContainerAnalysisV1Beta1Client {
   >;
   listScanConfigs(
     request: protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
       | protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse
@@ -876,7 +882,7 @@ export class ContainerAnalysisV1Beta1Client {
   listScanConfigs(
     request: protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
           | protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsResponse
@@ -899,12 +905,12 @@ export class ContainerAnalysisV1Beta1Client {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -945,7 +951,7 @@ export class ContainerAnalysisV1Beta1Client {
    */
   listScanConfigsStream(
     request?: protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -998,7 +1004,7 @@ export class ContainerAnalysisV1Beta1Client {
    */
   listScanConfigsAsync(
     request?: protos.google.devtools.containeranalysis.v1beta1.IListScanConfigsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<
     protos.google.devtools.containeranalysis.v1beta1.IScanConfig
   > {
