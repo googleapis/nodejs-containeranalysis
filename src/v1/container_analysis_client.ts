@@ -18,6 +18,7 @@
 
 /* global window */
 import * as gax from 'google-gax';
+import {GrafeasClient} from '@google-cloud/grafeas';
 import {Callback, CallOptions, Descriptors, ClientOptions} from 'google-gax';
 
 import * as protos from '../../protos/protos';
