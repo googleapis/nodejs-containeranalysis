@@ -13,5 +13,5 @@
   "product_documentation": "https://cloud.google.com/container-registry/docs/container-analysis",
   "codeowner_team": "@googleapis/cicd",
   "api_shortname": "containeranalysis",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
