@@ -6,7 +6,6 @@
 
 
 [![npm version](https://img.shields.io/npm/v/@google-cloud/containeranalysis.svg)](https://www.npmjs.org/package/@google-cloud/containeranalysis)
-[![codecov](https://img.shields.io/codecov/c/github/googleapis/nodejs-containeranalysis/main.svg?style=flat)](https://codecov.io/gh/googleapis/nodejs-containeranalysis)
 
 
 
