@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 'use strict';
 
 function main(resource, policy) {
@@ -33,8 +34,7 @@ function main(resource, policy) {
   // const policy = {}
 
   // Imports the Containeranalysis library
-  const {ContainerAnalysisClient} =
-    require('@google-cloud/containeranalysis').v1;
+  const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis').v1;
 
   // Instantiates a client
   const containeranalysisClient = new ContainerAnalysisClient();

@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 'use strict';
 
 function main(resource, permissions) {
@@ -33,8 +34,7 @@ function main(resource, permissions) {
   // const permissions = 'abc123'
 
   // Imports the Containeranalysis library
-  const {ContainerAnalysisV1Beta1Client} =
-    require('@google-cloud/containeranalysis').v1beta1;
+  const {ContainerAnalysisV1Beta1Client} = require('@google-cloud/containeranalysis').v1beta1;
 
   // Instantiates a client
   const containeranalysisClient = new ContainerAnalysisV1Beta1Client();

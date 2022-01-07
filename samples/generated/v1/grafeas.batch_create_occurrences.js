@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 'use strict';
 
 function main(parent, occurrences) {
@@ -43,9 +44,7 @@ function main(parent, occurrences) {
     };
 
     // Run request
-    const response = await containeranalysisClient.batchCreateOccurrences(
-      request
-    );
+    const response = await containeranalysisClient.batchCreateOccurrences(request);
     console.log(response);
   }
 
