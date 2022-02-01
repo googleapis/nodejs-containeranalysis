@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 'use strict';
 
 function main() {
@@ -26,15 +27,15 @@ function main() {
   // const name = 'abc123'
 
   // Imports the Containeranalysis library
-  const {GrafeasV1Beta1Client} =
-    require('@google-cloud/containeranalysis').v1beta1;
+  const {GrafeasV1Beta1Client} = require('@google-cloud/containeranalysis').v1beta1;
 
   // Instantiates a client
   const containeranalysisClient = new GrafeasV1Beta1Client();
 
   async function callDeleteOccurrence() {
     // Construct request
-    const request = {};
+    const request = {
+    };
 
     // Run request
     const response = await containeranalysisClient.deleteOccurrence(request);

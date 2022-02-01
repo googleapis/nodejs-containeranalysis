@@ -1,4 +1,4 @@
-// Copyright 2021 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -607,7 +607,7 @@ export class ContainerAnalysisClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.parent
-   *   The name of the project to get a vulnerability summary for in the form of
+   *   Required. The name of the project to get a vulnerability summary for in the form of
    *   `projects/[PROJECT_ID]`.
    * @param {string} request.filter
    *   The filter expression.
