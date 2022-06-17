@@ -409,13 +409,16 @@ describe('pubsub', () => {
         await client
           .getGrafeasClient()
           .deleteNote({name: `${formattedNoteName}-pubsub`});
-      } catch(err) {
-        assert.fail('Deletion of Grafeas note related to subscription failed with error: ', err);
+      } catch (err) {
+        assert.fail(
+          'Deletion of Grafeas note related to subscription failed with error: ',
+          err
+        );
       }
-      
+
       try {
         await pubsub.subscription(subscriptionId).delete();
-      } catch(err) {
+      } catch (err) {
         assert.fail('Deletion of subscription failed with error: ', err);
       }
     });
