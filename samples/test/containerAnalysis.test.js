@@ -303,7 +303,7 @@ describe('polling', () => {
   });
 });
 
-describe.only('pubsub', () => {
+describe('pubsub', () => {
   before(async () => {
     // define project id and related vars
     projectId = await client.getProjectId();
@@ -402,11 +402,6 @@ describe.only('pubsub', () => {
     });
 
     it('should delete the pubsub subscription', async function () {
-      // TODO: Verify first that subscription exists
-      // TODO: Verify that the grafeas client completed without erroring out (wrap in try/catch)
-      // TODO: Verify that the initial subscription checked has in fact been deleted
-      // TODO: Attempt to remove retries or create log trail to trace back
-
       this.retries(3);
       await delay(this.test);
 
