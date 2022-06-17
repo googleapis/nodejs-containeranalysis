@@ -303,7 +303,7 @@ describe('polling', () => {
   });
 });
 
-describe('pubsub', () => {
+describe.only('pubsub', () => {
   before(async () => {
     // define project id and related vars
     projectId = await client.getProjectId();
@@ -402,13 +402,27 @@ describe('pubsub', () => {
     });
 
     it('should delete the pubsub subscription', async function () {
+      // TODO: Verify first that subscription exists
+      // TODO: Verify that the grafeas client completed without erroring out (wrap in try/catch)
+      // TODO: Verify that the initial subscription checked has in fact been deleted
+      // TODO: Attempt to remove retries or create log trail to trace back
+
       this.retries(3);
       await delay(this.test);
 
-      await client
-        .getGrafeasClient()
-        .deleteNote({name: `${formattedNoteName}-pubsub`});
-      await pubsub.subscription(subscriptionId).delete();
+      try {
+        await client
+          .getGrafeasClient()
+          .deleteNote({name: `${formattedNoteName}-pubsub`});
+      } catch(err) {
+        assert.fail('Deletion of Grafeas note related to subscription failed with error: ', err);
+      }
+      
+      try {
+        await pubsub.subscription(subscriptionId).delete();
+      } catch(err) {
+        assert.fail('Deletion of subscription failed with error: ', err);
+      }
     });
   });
 });
