@@ -236,8 +236,8 @@ describe('Note tests', () => {
     );
     assert.include(output, 'Occurrence deleted:');
   });
-  
-  it('should delete note', function () {
+
+  it('should delete note', () => {
     try {
       const output = execSync(`node deleteNote.js "${projectId}" "${noteId}" `);
       assert.include(output, `Note ${formattedNoteName} deleted.`);
