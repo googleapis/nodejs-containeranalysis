@@ -41,7 +41,7 @@ let projectId;
 let formattedParent;
 let formattedNoteName;
 
-describe('Note tests', () => {
+describe.skip('Note tests', () => {
   before(async () => {
     // define projectId and related vars
     projectId = await client.getProjectId();
@@ -238,20 +238,15 @@ describe('Note tests', () => {
   });
 
   it('should delete note', () => {
-    try {
-      const output = execSync(`node deleteNote.js "${projectId}" "${noteId}" `);
-      assert.include(output, `Note ${formattedNoteName} deleted.`);
-      // Sometimes the delete note test is failing with the error:
-      // Error: 5 NOT_FOUND: note with ID "test-note-${uuid}" for project
-      // ${projectId} does not exist.
-    } catch (err) {
-      // ignore error
-      console.error(err);
-    }
+    const output = execSync(`node deleteNote.js "${projectId}" "${noteId}" `);
+    assert.include(output, `Note ${formattedNoteName} deleted.`);
+    // Sometimes the delete note test is failing with the error:
+    // Error: 5 NOT_FOUND: note with ID "test-note-${uuid}" for project
+    // ${projectId} does not exist.
   });
 });
 
-describe('polling', () => {
+describe.skip('polling', () => {
   before(async () => {
     // define project id and related vars
     projectId = await client.getProjectId();
@@ -306,7 +301,7 @@ describe('polling', () => {
   });
 });
 
-describe('pubsub', () => {
+describe.skip('pubsub', () => {
   before(async () => {
     // define project id and related vars
     projectId = await client.getProjectId();
