@@ -237,9 +237,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -267,9 +268,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -313,9 +315,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -343,9 +346,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -363,9 +367,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -393,9 +398,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -439,9 +445,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -469,9 +476,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -489,9 +497,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateOccurrenceRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateOccurrenceRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -519,9 +528,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateOccurrenceRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateOccurrenceRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -565,9 +575,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateOccurrenceRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateOccurrenceRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -595,9 +606,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateOccurrenceRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateOccurrenceRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -616,7 +628,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.BatchCreateOccurrencesRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'BatchCreateOccurrencesRequest',
+        '.grafeas.v1beta1.BatchCreateOccurrencesRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -648,7 +660,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.BatchCreateOccurrencesRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'BatchCreateOccurrencesRequest',
+        '.grafeas.v1beta1.BatchCreateOccurrencesRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -695,7 +707,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.BatchCreateOccurrencesRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'BatchCreateOccurrencesRequest',
+        '.grafeas.v1beta1.BatchCreateOccurrencesRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -729,7 +741,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.BatchCreateOccurrencesRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'BatchCreateOccurrencesRequest',
+        '.grafeas.v1beta1.BatchCreateOccurrencesRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -752,9 +764,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -782,9 +795,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -828,9 +842,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -858,9 +873,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateOccurrenceRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateOccurrenceRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateOccurrenceRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -878,9 +894,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceNoteRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -908,9 +925,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceNoteRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -954,9 +972,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceNoteRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -984,9 +1003,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetOccurrenceNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetOccurrenceNoteRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetOccurrenceNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1004,7 +1024,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1032,7 +1055,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1076,7 +1102,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1101,7 +1130,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.GetNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('GetNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.GetNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1119,7 +1151,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1147,7 +1182,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1191,7 +1229,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1219,7 +1260,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.DeleteNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('DeleteNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.DeleteNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1237,9 +1281,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateNoteRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateNoteRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1267,9 +1312,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateNoteRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateNoteRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1313,9 +1359,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateNoteRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateNoteRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1343,9 +1390,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.CreateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('CreateNoteRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.CreateNoteRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1363,9 +1411,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.BatchCreateNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('BatchCreateNotesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.BatchCreateNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1393,9 +1442,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.BatchCreateNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('BatchCreateNotesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.BatchCreateNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1439,9 +1489,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.BatchCreateNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('BatchCreateNotesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.BatchCreateNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1469,9 +1520,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.BatchCreateNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('BatchCreateNotesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.BatchCreateNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1489,7 +1541,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1517,7 +1572,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = generateSampleMessage(
@@ -1561,7 +1619,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1589,7 +1650,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.UpdateNoteRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('UpdateNoteRequest', ['name']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.UpdateNoteRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedError = new Error('The client has already been closed.');
       client.close();
@@ -1608,7 +1672,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'GetVulnerabilityOccurrencesSummaryRequest',
+        '.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -1642,7 +1706,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'GetVulnerabilityOccurrencesSummaryRequest',
+        '.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -1689,7 +1753,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'GetVulnerabilityOccurrencesSummaryRequest',
+        '.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -1723,7 +1787,7 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
         new protos.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest()
       );
       const defaultValue1 = getTypeDefaultValue(
-        'GetVulnerabilityOccurrencesSummaryRequest',
+        '.grafeas.v1beta1.GetVulnerabilityOccurrencesSummaryRequest',
         ['parent']
       );
       request.parent = defaultValue1;
@@ -1746,9 +1810,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -1778,9 +1843,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -1826,9 +1892,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1856,9 +1923,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -1906,9 +1974,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -1951,9 +2020,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -1993,9 +2063,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListOccurrencesRequest', [
-        'parent',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListOccurrencesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2034,7 +2105,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -2064,7 +2138,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -2110,7 +2187,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2135,7 +2215,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -2183,7 +2266,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2228,7 +2314,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedResponse = [
@@ -2267,7 +2356,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNotesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNotesRequest', ['parent']);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNotesRequest',
+        ['parent']
+      );
       request.parent = defaultValue1;
       const expectedHeaderRequestParams = `parent=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2307,9 +2399,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = [
@@ -2340,9 +2433,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = [
@@ -2388,9 +2482,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2418,9 +2513,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = [
@@ -2468,9 +2564,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
@@ -2513,9 +2610,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedResponse = [
@@ -2555,9 +2653,10 @@ describe('v1beta1.GrafeasV1Beta1Client', () => {
       const request = generateSampleMessage(
         new protos.grafeas.v1beta1.ListNoteOccurrencesRequest()
       );
-      const defaultValue1 = getTypeDefaultValue('ListNoteOccurrencesRequest', [
-        'name',
-      ]);
+      const defaultValue1 = getTypeDefaultValue(
+        '.grafeas.v1beta1.ListNoteOccurrencesRequest',
+        ['name']
+      );
       request.name = defaultValue1;
       const expectedHeaderRequestParams = `name=${defaultValue1}`;
       const expectedError = new Error('expected');
