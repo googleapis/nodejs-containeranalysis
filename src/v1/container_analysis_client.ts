@@ -18,6 +18,7 @@
 
 /* global window */
 import type * as gax from 'google-gax';
+import {GrafeasClient} from '@google-cloud/grafeas';
 import type {
   Callback,
   CallOptions,
