@@ -31,8 +31,8 @@ Google APIs Client Libraries, in [Client Libraries Explained][explained].
 * [Quickstart](#quickstart)
   * [Before you begin](#before-you-begin)
   * [Installing the client library](#installing-the-client-library)
-  * [Using the client library](#using-the-client-library)
-* [Samples](#samples)
+
+
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [License](#license)
@@ -54,76 +54,6 @@ npm install @google-cloud/containeranalysis
 ```
 
 
-### Using the client library
-
-```javascript
-/**
- * TODO(developer): Uncomment these variables before running the sample
- */
-// const projectId = 'your-project-id', // Your GCP Project ID
-// const noteId = 'my-note-id' // Id of the note
-
-// Import the library and create a client
-const {ContainerAnalysisClient} = require('@google-cloud/containeranalysis');
-const client = new ContainerAnalysisClient();
-// Fetch an instance of a Grafeas client:
-// see: https://googleapis.dev/nodejs/grafeas/latest
-const grafeasClient = client.getGrafeasClient();
-
-// Construct request
-// Associate the Note with a metadata type
-// https://cloud.google.com/container-registry/docs/container-analysis#supported_metadata_types
-// Here, we use the type "vulnerabiltity"
-const formattedParent = grafeasClient.projectPath(projectId);
-
-// Creates and returns a new Note
-const [note] = await grafeasClient.createNote({
-  parent: formattedParent,
-  noteId: noteId,
-  note: {
-    vulnerability: {
-      details: [
-        {
-          affectedCpeUri: 'foo.uri',
-          affectedPackage: 'foo',
-          minAffectedVersion: {
-            kind: 'MINIMUM',
-          },
-          fixedVersion: {
-            kind: 'MAXIMUM',
-          },
-        },
-      ],
-    },
-  },
-});
-
-console.log(`Note ${note.name} created.`);
-
-```
-
-
-
-## Samples
-
-Samples are in the [`samples/`](https://github.com/googleapis/nodejs-containeranalysis/tree/main/samples) directory. Each sample's `README.md` has instructions for running its sample.
-
-| Sample                      | Source Code                       | Try it |
-| --------------------------- | --------------------------------- | ------ |
-| Create Note | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/createNote.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/createNote.js,samples/README.md) |
-| Create Occurrence | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/createOccurrence.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/createOccurrence.js,samples/README.md) |
-| Delete Note | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/deleteNote.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/deleteNote.js,samples/README.md) |
-| Delete Occurrence | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/deleteOccurrence.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/deleteOccurrence.js,samples/README.md) |
-| Get Discovery Info | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/getDiscoveryInfo.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/getDiscoveryInfo.js,samples/README.md) |
-| Get Note | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/getNote.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/getNote.js,samples/README.md) |
-| Get Occurrence | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/getOccurrence.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/getOccurrence.js,samples/README.md) |
-| Get High Vulnerabilities for Image | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/highVulnerabilitiesForImage.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/highVulnerabilitiesForImage.js,samples/README.md) |
-| Occurrence PubSub | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/occurrencePubSub.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/occurrencePubSub.js,samples/README.md) |
-| Occurrences for Image | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/occurrencesForImage.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/occurrencesForImage.js,samples/README.md) |
-| Occurrences for Note | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/occurrencesForNote.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/occurrencesForNote.js,samples/README.md) |
-| Poll Discovery Occurrence Finished | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/pollDiscoveryOccurrenceFinished.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/pollDiscoveryOccurrenceFinished.js,samples/README.md) |
-| Quickstart | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/quickstart.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/quickstart.js,samples/README.md) |
-| Vulnerability Occurrences for Image | [source code](https://github.com/googleapis/nodejs-containeranalysis/blob/main/samples/vulnerabilityOccurrencesForImage.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-containeranalysis&page=editor&open_in_editor=samples/vulnerabilityOccurrencesForImage.js,samples/README.md) |
 
 
 
